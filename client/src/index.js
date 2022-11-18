@@ -3,11 +3,34 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Admin from './components/Admin';
+import Distributor from './components/Distributor';
+import ManufactureFactory from './components/ManufactureFactory';
+import ServiceCenter from './components/ServiceCenter';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+const user = {
+  "name": "quyet",
+  "typeAccount": "sanxuat"
+}
+
 root.render(
+
+
   <React.StrictMode>
-    <App />
+    {user.typeAccount === "admin" &&
+      <Admin/>
+    }
+    {user.typeAccount === "daily" &&
+      <Distributor/>
+    }
+    {user.typeAccount === "sanxuat" &&
+      <ManufactureFactory/>
+    }
+    {user.typeAccount === "baohanh" &&
+      <ServiceCenter/>
+    }
   </React.StrictMode>
 );
 
