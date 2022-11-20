@@ -2,17 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Admin from './components/Admin';
-import Distributor from './components/Distributor';
-import ManufactureFactory from './components/ManufactureFactory';
-import ServiceCenter from './components/ServiceCenter';
+import Admin from './displays/admin/Admin';
+import Distributor from './displays/distributor/Distributor';
+import ManufactureFactory from './displays/manufactureFactory/ManufactureFactory';
+import ServiceCenter from './displays/serviceCenter/ServiceCenter';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const user = {
   "name": "quyet",
-  "typeAccount": "sanxuat"
+  "typeAccount": "admin"
 }
 
 root.render(
@@ -34,7 +33,4 @@ root.render(
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+

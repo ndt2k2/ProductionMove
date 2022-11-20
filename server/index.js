@@ -27,6 +27,10 @@ app.get("/api", (req, res) =>{
 // ROUTES
 app.use("/api/user", userRoute);
 
+app.get("/", (req, res) => {
+    res.status(200).json("acdcer");
+})
+
 
 
 app.listen(8000, () => {

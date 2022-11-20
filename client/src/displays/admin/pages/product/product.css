@@ -1,0 +1,6 @@
+.product {
+    display: flex;
+    max-width: 100vw;
+    padding: 0;
+    /* height: 100vh; */
+}

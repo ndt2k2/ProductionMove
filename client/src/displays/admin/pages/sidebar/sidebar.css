@@ -1,0 +1,59 @@
+
+.sidebar {
+    flex: 1;
+    border-right: 0.5px solid lightgray;
+    min-height: 100vh;
+}
+
+.sidebar + button {
+    height: 50px;
+}
+
+.top {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background: purple; */
+}
+
+.avatar {
+    height: 40px;
+    width: 40px;
+    background: aqua;
+    border-radius: 50%;
+    border: none;
+}
+
+hr {
+    margin-top: 2px;;
+    margin-bottom: 2px;
+    height: 0;
+    border: 0.5px solid lightgray;
+}
+
+.center {
+    padding-left: 10px;
+    margin-top: 100px;
+}
+
+ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    display: flex;
+    align-items: center;
+    padding: 4px;
+    cursor: pointer;
+}
+
+li :hover {
+    background: #ece8ff;
+}
+
+.logout {
+    margin-top: 200px;
+}
