@@ -23,7 +23,6 @@ export default function Admin() {
                     <Route path='/productLine' element = {<ProductLine/>}/>
                 </Routes>
             </Router>
-            
         </div>
     );
 }

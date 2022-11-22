@@ -7,7 +7,12 @@ export default function Statistical() {
     return(
         <div className="statistical">
             <Sidebar/>
-            <Navbar/>
+            <div className="wrapper">
+                <Navbar/>
+                <div className="main">
+                    abc
+                </div>
+            </div>
         </div>
     )
 }
