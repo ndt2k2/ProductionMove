@@ -10,14 +10,6 @@ const ProductSchema = new mongoose.Schema({
         type: String,
         require:true,
     },
-    brand: {
-        type: String,
-        require:true,
-    },
-    model: {
-        type: String,
-        require: true,
-    },
     color: {
         type: String,
         require: true,
@@ -30,14 +22,27 @@ const ProductSchema = new mongoose.Schema({
         type: String,
         require: false,
     },
-    owner: {
+    serviceCenter: {
         type: String,
-        require: false,
+        require: false
     },
     status: {
         type: String,
         require: true,
+    },
+    image: {
+        type: String,
+        require: true,
+    },
+    owner: {
+        type: String,
+        require: false,
+    },
+    warrantyPeriod: {
+        type: String,
+        require: false,
     }
+
 
 }, { timestamps: true });
 module.exports = mongoose.model("Product", ProductSchema);
