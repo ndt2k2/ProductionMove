@@ -9,8 +9,8 @@ export default function Statistical() {
             <Sidebar/>
             <div className="wrapper">
                 <Navbar/>
-                <div className="main">
-                    abc
+                <div className="mainStatistical">
+                statistical
                 </div>
             </div>
         </div>

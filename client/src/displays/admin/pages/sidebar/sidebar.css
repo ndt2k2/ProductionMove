@@ -6,40 +6,12 @@
 }
 
 
-.top {
-    height: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    /* border-bottom: 0.5px solid lightgray; */
-}
-
-.avatar {
-    height: 50px;
-    width: 50px;
-    /* background: aqua; */
-    border-radius: 50%;
-    border: none;
-}
-
-/* hr {
-    margin-top: 2px;;
-    margin-bottom: 2px;
-    height: 0;
-    border: 0.5px solid lightgray;
-} */
-
 .center {
     margin-top: 100px;
 
 }
 
 ul{
-    /* display: flex; */
-    /* flex-direction: column; */
-    /* justify-content: center;
-    align-items: center; */
     list-style: none;
     margin: 0;
     padding: 0;

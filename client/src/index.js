@@ -14,9 +14,9 @@ const user = {
 }
 
 root.render(
+// React.StrictMode
 
-
-  <React.StrictMode>
+  <>
     {user.typeAccount === "admin" &&
       <Admin/>
     }
@@ -29,7 +29,7 @@ root.render(
     {user.typeAccount === "baohanh" &&
       <ServiceCenter/>
     }
-  </React.StrictMode>
+  </>
 );
 
 

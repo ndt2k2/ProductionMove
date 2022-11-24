@@ -8,8 +8,8 @@ import {
     Navigate
   } from "react-router-dom";
 import Statistical from './pages/statistical/statistical';
-import AccountManagement from './pages/accountManagement/accountManagement';
-import Product from './pages/product/product';
+import Accounts from './pages/accounts/accounts';
+import Products from './pages/products/products';
 import ProductLine from './pages/productLine/productLine';
 
 export default function Admin() {
@@ -18,8 +18,8 @@ export default function Admin() {
             <Router>
                 <Routes>
                     <Route path='/' element = {<Statistical/>}/>
-                    <Route path='/accountManagement' element = {<AccountManagement/>}/>
-                    <Route path='/product' element = {<Product/>}/>
+                    <Route path='/accountManagement' element = {<Accounts/>}/>
+                    <Route path='/product' element = {<Products/>}/>
                     <Route path='/productLine' element = {<ProductLine/>}/>
                 </Routes>
             </Router>
