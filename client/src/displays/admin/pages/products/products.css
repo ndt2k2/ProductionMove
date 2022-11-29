@@ -14,10 +14,24 @@
     flex-direction: column;
 }
 
+.searchProductWrap {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.select {
+    width: 200px;
+    height: 40px;
+    margin-right: 5px;
+    /* background: rgba(255, 255, 255, 0.54); */
+    cursor: pointer;
+}
+
 .searchProduct {
     float: right;
     margin-right: 60px;
     margin-bottom: 20px;
+    height: 40px;
 
     display: flex;
     align-items: center;
@@ -48,7 +62,4 @@ input[placeholder] {
     margin-left: 20px;
     margin-right: 20px;
 }
-
-
-
 

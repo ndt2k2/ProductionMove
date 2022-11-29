@@ -1,16 +1,18 @@
 import './products.css';
 import Sidebar from '../sidebar/sidebar';
 import Navbar from '../../../../components/navbar/navbar';
-import Table from 'react-bootstrap/Table';
 import Product from '../../../../components/product/product';
 import {BiSearchAlt2} from 'react-icons/bi';
+import Table from 'react-bootstrap/Table';
+import Form from 'react-bootstrap/Form';
+
 
 
 
 const listProduct = [
     {
         "id": "1",
-        "name": "xe 1",
+        "name": "xe 1", // productLine
         "year": "2022",
         "color": "den",
         "status": "da ban",
@@ -53,14 +55,25 @@ export default function Products() {
             <div className="wrapper">
                 <Navbar/>
                 <div className="mainProduct">
-                    <div>
+                    <div className='searchProductWrap'>
+                        <Form.Select aria-label="Default select example" className='select'>
+                            <option>Id</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                            <option value="4">four</option>
+                            <option value="5">five</option>
+                            <option value="6">six</option>
+                            <option value="7">seven</option>
+
+                        </Form.Select>
                         <div className="searchProduct">
                             <input type="text" placeholder='Search...' />
                             <BiSearchAlt2 className='searchIcon'/>
                         </div>
                     </div>
                     <div className="listProduct">
-                        <Table responsive>
+                        <Table className='test' responsive="lg">
                             <thead>
                                 <tr>
                                 <th>#</th>

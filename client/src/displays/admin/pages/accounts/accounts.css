@@ -23,7 +23,7 @@
 
 }
 
-.createAccount {
+button {
     margin-left: 7rem;
     border: 0.5px solid lightgray;
     border-radius: 10px;
@@ -33,7 +33,7 @@
 
 }
 
-.createAccount:hover{
+button:hover{
     background: rgb(238, 238, 238);
 }
 

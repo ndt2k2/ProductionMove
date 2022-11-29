@@ -1,4 +1,6 @@
-.statistical {
+
+
+.recallProductions {
     display: flex;
     height: 97%;
     width: 97%;
@@ -16,15 +18,23 @@
     flex-direction: column;
 }
 
-.mainStatistical {
-    overflow: auto;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+.recallWrapper {
+    display: flex;
+    flex-direction: column;
 }
 
-@media screen and (max-width: 1188px) {
-    .mainStatistical {
-        display: block;
-    }
+.navRecall {
+    display: flex;
+    justify-content: space-between;
+}
+
+.addProductError {
+    margin-right: 100px;
+}
+
+p {
+    font-weight: 600;
+    color: #888;
+    min-width: 203.5px;
+    margin-left: 300px;
 }
