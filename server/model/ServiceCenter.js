@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const FactorySchema = new mongoose.Schema({
+const ServiceCenterSchema = new mongoose.Schema({
     ID: {
         type: String,
         require: true,
@@ -10,4 +10,4 @@ const FactorySchema = new mongoose.Schema({
         require: true,
     }
 }, { timestamps: true });
-module.exports = mongoose.model("ManufactureFactory", FactorySchema);
+module.exports = mongoose.model("ServiceCenter", ServiceCenterSchema);
