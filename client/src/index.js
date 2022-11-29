@@ -10,23 +10,23 @@ import ServiceCenter from './displays/serviceCenter/ServiceCenter';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const user = {
   "name": "quyet",
-  "typeAccount": "admin"
+  "typeAccount": "Admin"
 }
 
 root.render(
 // React.StrictMode
 
   <>
-    {user.typeAccount === "admin" &&
+    {user.typeAccount === "Admin" &&
       <Admin/>
     }
-    {user.typeAccount === "daily" &&
+    {user.typeAccount === "Distributor" &&
       <Distributor/>
     }
-    {user.typeAccount === "sanxuat" &&
+    {user.typeAccount === "ManufactureFactory" &&
       <ManufactureFactory/>
     }
-    {user.typeAccount === "baohanh" &&
+    {user.typeAccount === "ServiceCenter" &&
       <ServiceCenter/>
     }
   </>

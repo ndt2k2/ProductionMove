@@ -12,7 +12,6 @@ import {BsPerson} from 'react-icons/bs'
 
 export default function Sidebar() {
  
-    
 
     return(
         <div className="sidebar">
@@ -28,25 +27,25 @@ export default function Sidebar() {
                         </li>
                     </Link>
 
-                    <Link style={{textDecoration: 'none'}} to='/product'>
-                        <li title='product'>               
+                    <Link style={{textDecoration: 'none'}} to='/products'>
+                        <li title='products'>               
                             <RiProductHuntLine className='icon'/> 
-                            <span>Product</span>                            
+                            <span>Products</span>                            
                         </li >
                     </Link>
 
-                    <Link style={{textDecoration: 'none'}} to='/productLine'>
-                        <li title='productLine'>
+                    <Link style={{textDecoration: 'none'}} to='/recallProductions'>
+                        <li title='recallProductions'>
                             <AiOutlineUnorderedList className='icon'/>
-                            <span>ProductLine</span>
+                            <span>Recall Productions</span>
                             
                         </li>
                     </Link>
 
-                    <Link style={{textDecoration: 'none'}} to='/accountManagement'>
-                        <li title='accountManagement'>
+                    <Link style={{textDecoration: 'none'}} to='/order'>
+                        <li title='order'>
                             <BsPerson className='icon'/>
-                            <span>Account</span>
+                            <span>Order</span>
                             
                         </li>
                     </Link>
