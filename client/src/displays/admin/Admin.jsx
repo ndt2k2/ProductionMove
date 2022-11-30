@@ -1,5 +1,4 @@
 import './admin.css';
-import Navbar from '../../components/navbar/navbar';
 
 import {
     BrowserRouter as Router,

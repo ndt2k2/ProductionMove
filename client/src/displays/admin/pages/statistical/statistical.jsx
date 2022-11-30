@@ -1,6 +1,8 @@
 import './statistical.css';
 import Sidebar from '../sidebar/sidebar';
 import Navbar from '../../../../components/navbar/navbar';
+import PiaChart from '../../../../components/charts/pieChart/pieChart';
+import BarChart from '../../../../components/charts/barChart/barChart';
 
 
 export default function Statistical() {
@@ -10,7 +12,10 @@ export default function Statistical() {
             <div className="wrapper">
                 <Navbar/>
                 <div className="mainStatistical">
-                statistical
+                    <PiaChart/>
+                    <BarChart/>
+                    <BarChart/>
+                    <BarChart/>
                 </div>
             </div>
         </div>
