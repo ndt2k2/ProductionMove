@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const ErrorSchema = new mongoose.Schema({
-    product: {
+    ID: {
         type: String,
         require: true,
     },
@@ -9,7 +9,7 @@ const ErrorSchema = new mongoose.Schema({
         type: String,
         require: false,
     },
-    Quantity: {
+    status: {
         type: Number,
         require: false,
     }
