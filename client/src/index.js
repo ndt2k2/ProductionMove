@@ -12,21 +12,24 @@ const user = {
   "name": "quyet",
   "typeAccount": "admin"
 }
-
+const user2 = {
+  "name": "ha",
+  "typeAccount": "baohanh"
+}
 root.render(
 // React.StrictMode
 
   <>
-    {user.typeAccount === "admin" &&
+    {user2.typeAccount === "admin" &&
       <Admin/>
     }
-    {user.typeAccount === "daily" &&
+    {user2.typeAccount === "daily" &&
       <Distributor/>
     }
-    {user.typeAccount === "sanxuat" &&
+    {user2.typeAccount === "sanxuat" &&
       <ManufactureFactory/>
     }
-    {user.typeAccount === "baohanh" &&
+    {user2.typeAccount === "baohanh" &&
       <ServiceCenter/>
     }
   </>
