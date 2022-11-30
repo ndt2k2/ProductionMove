@@ -9,6 +9,10 @@ const WarrantySchema = new mongoose.Schema({
         type: String,
         require: false,
     },
+    status: {
+        type: String,
+        require: false,
+    },
     idDistributor: {
         type: String,
         require: true,
