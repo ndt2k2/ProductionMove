@@ -3,10 +3,12 @@ import { Link, NavLink } from 'react-router-dom';
 
 import Profile from '../../../../components/profile/profile';
 import {MdDashboard} from 'react-icons/md';
-import {AiOutlineUnorderedList} from 'react-icons/ai';
+import {IoCarSport} from 'react-icons/io5';
 import {GiAutoRepair} from 'react-icons/gi';
 import {FiLogOut} from 'react-icons/fi';
 import {VscGraphLine} from 'react-icons/vsc'
+import {FaBoxes} from 'react-icons/fa'
+
 
 import { useState, useEffect } from 'react';
 import Statistical from '../statistical/statistical';
@@ -17,9 +19,6 @@ export default function Sidebar() {
     const click1 = (selected) => {
         setSelected(selected);
     }
-    const Sidebar = ['statistical','products']
-    console.log(selected)
-    const sta = document.getElementById('sta')
     return(
         <div className="sidebar">
                
@@ -35,9 +34,23 @@ export default function Sidebar() {
                     </NavLink>
 
                     <NavLink style={{textDecoration: 'none'}} to='/product'>
-                        <li title='product' id='pro' >               
+                        <li title='product'>               
+                            <IoCarSport className='icon'/> 
+                            <span>Products</span>
+                        </li >
+                    </NavLink>
+
+                    <NavLink style={{textDecoration: 'none'}} to='/defective'>
+                        <li title='failure'>               
                             <GiAutoRepair className='icon'/> 
-                            <span>Repair</span>
+                            <span>Failures</span>
+                        </li >
+                    </NavLink>
+
+                    <NavLink style={{textDecoration: 'none'}} to='/orders'>
+                        <li title='order'>               
+                            <FaBoxes className='icon'/> 
+                            <span>Orders</span>
                         </li >
                     </NavLink>
                 </ul>

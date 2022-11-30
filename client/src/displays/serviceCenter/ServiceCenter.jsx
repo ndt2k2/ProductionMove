@@ -16,8 +16,8 @@ export default function ServiceCenter() {
         <div className="container">
             <Router>
                 <Routes>
-                    <Route path='/serCen/' element = {<Statistical/>}/>
-                    <Route path='/serCen/product' element = {<Products/>}/>
+                    <Route path='/' element = {<Statistical/>}/>
+                    <Route path='/product' element = {<Products/>}/>
                 </Routes>
             </Router>
         </div>
