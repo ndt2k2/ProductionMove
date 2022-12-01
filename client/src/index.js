@@ -10,7 +10,7 @@ import ServiceCenter from './displays/serviceCenter/ServiceCenter';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const user = {
   "name": "quyet",
-  "typeAccount": "Admin"
+  "typeAccount": "sanxuat"
 }
 
 root.render(
@@ -20,13 +20,13 @@ root.render(
     {user.typeAccount === "Admin" &&
       <Admin/>
     }
-    {user.typeAccount === "Distributor" &&
+    {user.typeAccount === "daily" &&
       <Distributor/>
     }
-    {user.typeAccount === "ManufactureFactory" &&
+    {user.typeAccount === "sanxuat" &&
       <ManufactureFactory/>
     }
-    {user.typeAccount === "ServiceCenter" &&
+    {user.typeAccount === "baohanh" &&
       <ServiceCenter/>
     }
   </>

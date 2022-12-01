@@ -1,5 +1,5 @@
 import './sidebar.css';
-import { Link } from 'react-router-dom';
+import { Link,NavLink } from 'react-router-dom';
 import Profile from '../../../../components/profile/profile';
 
 import {MdDashboard} from 'react-icons/md';
@@ -20,35 +20,35 @@ export default function Sidebar() {
 
             <div className="center">
                 <ul>
-                    <Link style={{textDecoration: 'none'}} to='/'>
+                    <NavLink style={{textDecoration: 'none'}} to='/'>
                         <li title='Statistical'>
                             <MdDashboard className='icon'/>
                             <span>Statistical</span>
                         </li>
-                    </Link>
+                    </NavLink>
 
-                    <Link style={{textDecoration: 'none'}} to='/products'>
+                    <NavLink style={{textDecoration: 'none'}} to='/products'>
                         <li title='products'>               
                             <RiProductHuntLine className='icon'/> 
                             <span>Products</span>                            
                         </li >
-                    </Link>
+                    </NavLink>
 
-                    <Link style={{textDecoration: 'none'}} to='/recallProductions'>
+                    <NavLink style={{textDecoration: 'none'}} to='/recallProductions'>
                         <li title='recallProductions'>
                             <AiOutlineUnorderedList className='icon'/>
                             <span>Recall Productions</span>
                             
                         </li>
-                    </Link>
+                    </NavLink>
 
-                    <Link style={{textDecoration: 'none'}} to='/order'>
+                    <NavLink style={{textDecoration: 'none'}} to='/order'>
                         <li title='order'>
                             <BsPerson className='icon'/>
                             <span>Order</span>
                             
                         </li>
-                    </Link>
+                    </NavLink>
                 </ul>
 
             </div>
