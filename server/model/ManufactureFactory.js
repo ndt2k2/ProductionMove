@@ -3,11 +3,12 @@ const mongoose = require('mongoose');
 const FactorySchema = new mongoose.Schema({
     ID: {
         type: String,
-        require: true,
+        required: true,
+        unique: true,
     },
     name: {
         type: String,
-        require: true,
+        required: true,
     }
 }, { timestamps: true });
 module.exports = mongoose.model("ManufactureFactory", FactorySchema);

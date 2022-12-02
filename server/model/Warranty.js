@@ -3,23 +3,23 @@ const mongoose = require('mongoose');
 const WarrantySchema = new mongoose.Schema({
     ID: {
         type: String,
-        require: true,
+        required: true,
     },
     error: {
         type: String,
-        require: false,
+        required: true,
     },
     status: {
         type: String,
-        require: false,
+        required: true,
     },
     idDistributor: {
         type: String,
-        require: true,
+        required: true,
     },
     idServiceCenter: {
         type: String,
-        require: true,
-    }
+        required: true,
+    },
 }, { timestamps: true });
 module.exports = mongoose.model("Warranty", WarrantySchema);
