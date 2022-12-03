@@ -12,7 +12,7 @@ const RecallProductions = () => {
         <NavBar/>
         <div className="recallWrapper">
           <div className="navRecall">
-            <p>Các sản phẩm lỗi đang xử lý</p>
+            <p className='errorHeader'>Các sản phẩm lỗi đang xử lý</p>
             <button className='addProductError'>Thêm sản phẩm lỗi</button>
           </div>
 

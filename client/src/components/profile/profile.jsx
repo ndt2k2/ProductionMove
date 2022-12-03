@@ -36,6 +36,8 @@ const Profile = () => {
                 <h3>tuoi: 19</h3>
                 <h3>Quê: Vĩnh Phúc</h3>
                 <h3>email: quyet123@gmail.com</h3>
+                <h3>
+                    Loai tk: admin</h3>
 
             </div>
         </div>

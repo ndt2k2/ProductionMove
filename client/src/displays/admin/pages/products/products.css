@@ -10,37 +10,11 @@
 }
 
 .mainProduct {
-    display: flex;
-    flex-direction: column;
+    margin-top: 20px;
 }
 
-.searchProductWrap {
-    display: flex;
-    justify-content: flex-end;
-}
 
-.select {
-    width: 200px;
-    height: 40px;
-    margin-right: 5px;
-    /* background: rgba(255, 255, 255, 0.54); */
-    cursor: pointer;
-}
 
-.searchProduct {
-    float: right;
-    margin-right: 60px;
-    margin-bottom: 20px;
-    height: 40px;
-
-    display: flex;
-    align-items: center;
-    border: 0.5px solid lightgray;
-    border-radius: 10px;
-    padding: 3px;
-    background: rgba(255, 255, 255, 0.54);
-
-}
 
 input {
     border: none;
@@ -51,15 +25,5 @@ input {
 
 input[placeholder] {
     padding-left: 10px;
-}
-
-.searchIcon {
-    color: #7451f8;
-    font-size: 20px;
-}
-
-.listProduct {
-    margin-left: 20px;
-    margin-right: 20px;
 }
 

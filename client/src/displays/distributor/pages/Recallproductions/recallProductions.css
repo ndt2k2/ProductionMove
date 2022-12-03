@@ -32,7 +32,7 @@
     margin-right: 100px;
 }
 
-p {
+.errorHeader {
     font-weight: 600;
     color: #888;
     min-width: 203.5px;
