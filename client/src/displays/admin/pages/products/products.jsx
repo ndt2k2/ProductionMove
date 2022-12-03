@@ -2,102 +2,89 @@ import './products.css';
 import Sidebar from '../sidebar/sidebar';
 import Navbar from '../../../../components/navbar/navbar';
 import Product from '../../../../components/product/product';
-import {BiSearchAlt2} from 'react-icons/bi';
-import Table from 'react-bootstrap/Table';
-import Form from 'react-bootstrap/Form';
+import UserActions from '../../../../components/userActions/userActions';
 
+import {Box} from '@mui/material'
+import {DataGrid } from '@mui/x-data-grid'
 
-
-
-const listProduct = [
-    {
-        "id": "1",
-        "name": "xe 1", // productLine
-        "year": "2022",
-        "color": "den",
-        "status": "da ban",
-        "owner": "quyet",
-        "thoi gian bao hanh": "2 nam",
-        "factory": "Vinh Phuc",
-        "serviceCenter": "-",
-        "distributor": "tan xien ban"
-    },
-    {
-        "id": "1",
-        "name": "xe 1",
-        "year": "2022",
-        "color": "den",
-        "status": "da ban",
-        "owner": "quyet",
-        "thoi gian bao hanh": "2 nam",
-        "factory": "Vinh Phuc",
-        "serviceCenter": "-",
-        "distributor": "tan xien ban"
-    },
-    {
-        "id": "1",
-        "name": "xe 1",
-        "year": "2022",
-        "color": "den",
-        "status": "da ban",
-        "owner": "quyet",
-        "thoi gian bao hanh": "2 nam",
-        "factory": "Vinh Phuc",
-        "serviceCenter": "-",
-        "distributor": "tan xien ban"
-    }
-]
+import { useState } from 'react';
 
 export default function Products() {
+    const [pageSize, setPageSize] = useState(10);
+    const [selectionModel, setSelectionModel] = useState([]);
+    console.log(selectionModel);
+
+    const [rows, setRows] = useState([
+        { id: '1', name: "Raj", email: "Raj@gmail.com", phone: 7894561230, age: null, gender: "M", city: "Chennai", fee: 78456 },
+        { id: '2',name: "Mohan", email: "mohan@gmail.com", phone: 7845621590, age: 35, gender: "M", city: "Delhi", fee: 456125 },
+        { id: '3',name: "Sweety", email: "sweety@gmail.com", phone: 741852912, age: 17, gender: "F", city: "Noida", fee: 458796 },
+        { id: '4',name: "Vikas", email: "vikas@gmail.com", phone: 9876543210, age: 20, gender: "M", city: "Mumbai", fee: 874569 },
+        { id: '5',name: "Neha", email: "neha@gmail.com", phone: 7845621301, age: 25, gender: "F", city: "Patna", fee: 748521 },
+        { id: '6',name: "Mohan", email: "mohan@gmail.com", phone: 7845621590, age: 35, gender: "M", city: "Delhi", fee: 456125 },
+        { id: '7',name: "Sweety", email: "sweety@gmail.com", phone: 741852912, age: 17, gender: "F", city: "Noida", fee: 458796 },
+        { id: '8',name: "Vikas", email: "vikas@gmail.com", phone: 9876543210, age: 20, gender: "M", city: "Mumbai", fee: 874569 },
+        { id: '9',name: "Raj", email: "Raj@gmail.com", phone: 7894561230, age: null, gender: "M", city: "Chennai", fee: 78456 },
+        { id: '10',name: "Mohan", email: "mohan@gmail.com", phone: 7845621590, age: 35, gender: "M", city: "Delhi", fee: 456125 },
+        { id: '11',name: "Sweety", email: "sweety@gmail.com", phone: 741852912, age: 17, gender: "F", city: "Noida", fee: 458796 },
+        { id: '12',name: "Vikas", email: "vikas@gmail.com", phone: 9876543210, age: 20, gender: "M", city: "Mumbai", fee: 874569 },
+      ])
+
+    const columns = [
+        { title: "Id", field: "id", width: 90, editable: true },
+        { title: "Name", field: "name" , width: 120, editable: true },
+        { title: "Email", field: "email", width: 200, editable: true  },
+        { title: "Phone Number", field: "phone", width: 120, editable: true },
+        { title: "Age", field: "age", width: 90, editable: true },
+        { title: "Gender", field: "gender", width: 120, editable: true },
+        { title: "City", field: "city", width: 120, editable: true },
+        { title: "School Fee", field: "fee", width: 90, editable: true  },
+        { title:"actions", field: "actions", type: "actions", renderCell:params=> <UserActions {...{params}}/>}
+    ]
+
+    const handleDelete = () => {
+        setSelectionModel([])
+    };
+
     return(
         <div className="products">
             <Sidebar/>
             <div className="wrapper">
                 <Navbar/>
+                <button 
+                    style={{width:100}}
+                    onClick = {()=>handleDelete()}
+                >
+                    delete products
+                </button>
+
                 <div className="mainProduct">
-                    <div className='searchProductWrap'>
-                        <Form.Select aria-label="Default select example" className='select'>
-                            <option>Id</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                            <option value="4">four</option>
-                            <option value="5">five</option>
-                            <option value="6">six</option>
-                            <option value="7">seven</option>
+                       <Box 
+                         sx={{
+                            height: 631,
+                            width: '100%',                            
+                         }}
+                         style={{
+                            cursor:"pointer"
+                          }}
+                        >
+                            <DataGrid
+                            columns={columns}
+                            rows={rows}
+                            getRowId={rows.id}
+                            checkboxSelection
+                            editMode="row"
+                            disableSelectionOnClick
+                            pagination
+                            pageSize={pageSize}
+                            onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
+                            rowsPerPageOptions={[10, 20, 40]}
 
-                        </Form.Select>
-                        <div className="searchProduct">
-                            <input type="text" placeholder='Search...' />
-                            <BiSearchAlt2 className='searchIcon'/>
-                        </div>
-                    </div>
-                    <div className="listProduct">
-                        <Table className='test' responsive="lg">
-                            <thead>
-                                <tr>
-                                <th>#</th>
-                                <th>id</th>
-                                <th>name</th>
-                                <th>year</th>
-                                <th>color</th>
-                                <th>status</th>
-                                <th>owner</th>
-                                <th>warrantyPeriod</th>
-                                <th>factory</th>
-                                <th>serviceCenter</th>
-                                <th>distributor</th>
-
-                                </tr>
-                            </thead>
-                            <tbody> 
-                                <Product/>
-                                <Product/>                       
-                                <Product/>                       
-                            
-                            </tbody>
-                        </Table>
-                    </div>
+                            onSelectionModelChange={(newSelectionModel) => {
+                                setSelectionModel(newSelectionModel);
+                              }}
+                            selectionModel={selectionModel}
+                            />
+                       </Box>
                 </div>
             </div>
         </div>

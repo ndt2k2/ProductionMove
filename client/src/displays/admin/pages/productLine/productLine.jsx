@@ -6,8 +6,11 @@ export default function ProductLine() {
     return(
         <div className="productLine">
             <Sidebar/>
+            <div className="wrapper">
+
             <Navbar/>
             productLine
+            </div>
         </div>
     )
 }

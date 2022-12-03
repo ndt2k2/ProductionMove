@@ -7,6 +7,7 @@ const morgan = require("morgan");
 const dotenv = require("dotenv");
 
 const userRoute = require("./routes/user");
+const productsRoute = require("./routes/products");
 
 // connect database
 mongoose.connect("mongodb+srv://20020467:22122002@cluster0.y3un7jc.mongodb.net/?retryWrites=true&w=majority", () => {
@@ -26,12 +27,7 @@ app.get("/api", (req, res) =>{
 
 // ROUTES
 app.use("/api/user", userRoute);
-
-app.get("/", (req, res) => {
-    res.status(200).json("acdcer");
-})
-
-
+app.use("/api/product", productsRoute);
 
 app.listen(8000, () => {
     console.log("Server is running...");
