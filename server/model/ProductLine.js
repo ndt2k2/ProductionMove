@@ -3,15 +3,15 @@ const mongoose = require('mongoose');
 const ProductLineSchema = new mongoose.Schema({
     prouctLine: {
         type: String,
-        require: true,
+        required: true,
     },
     textDescription: {
         type: String,
-        require: true,
+        required: true,
     },
     image: {
         type: String,
-        require: true,
+        required: true,
     }
 }, { timestamps: true });
 module.exports = mongoose.model("ProductLine", ProductLineSchema);

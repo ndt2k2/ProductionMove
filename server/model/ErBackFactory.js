@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const WarrantySchema = new mongoose.Schema({
+const ErBackFactorySchema = new mongoose.Schema({
     ID: {
         type: String,
         required: true,
@@ -13,7 +13,7 @@ const WarrantySchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    idDistributor: {
+    iDManufactureFactory: {
         type: String,
         required: true,
     },
@@ -21,5 +21,9 @@ const WarrantySchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    time : {
+        type: Date,
+        default: Date.now,
+    }
 }, { timestamps: true });
-module.exports = mongoose.model("Warranty", WarrantySchema);
+module.exports = mongoose.model("ErBackFactory", ErBackFactorySchema);

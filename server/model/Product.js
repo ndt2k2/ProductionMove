@@ -5,10 +5,40 @@ const ProductSchema = new mongoose.Schema({
         type: String,
         required: true,
         unique: true,
+        required: true,
+        unique: true
     },
     name:{
         type: String,
-        required:true
+        required:true,
+    },
+    color: {
+        type: String,
+        required: true,
+    },
+    factory: {
+        type: String,
+        required: true,
+    },
+    distributor: {
+        type: String,
+        required: false,
+    },
+    status: {
+        type: String,
+        required: true,
+    },
+    image: {
+        type: String,
+        required: true,
+    },
+    owner: {
+        type: String,
+        required: false,
+    },
+    deliveryTime: {
+        type: Date,
+        required: false,
     }
     // ,
     // color: {
