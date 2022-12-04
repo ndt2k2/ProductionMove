@@ -22,10 +22,6 @@ const ProductSchema = new mongoose.Schema({
         type: String,
         required: false,
     },
-    serviceCenter: {
-        type: String,
-        required: false
-    },
     status: {
         type: String,
         required: true,
@@ -35,10 +31,6 @@ const ProductSchema = new mongoose.Schema({
         required: true,
     },
     owner: {
-        type: String,
-        required: false,
-    },
-    warrantyPeriod: {
         type: String,
         required: false,
     },

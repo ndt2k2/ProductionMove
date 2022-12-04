@@ -13,7 +13,7 @@ const ErBackFactorySchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    idDistributor: {
+    iDManufactureFactory: {
         type: String,
         required: true,
     },
@@ -21,5 +21,9 @@ const ErBackFactorySchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    time : {
+        type: Date,
+        default: Date.now,
+    }
 }, { timestamps: true });
 module.exports = mongoose.model("ErBackFactory", ErBackFactorySchema);
