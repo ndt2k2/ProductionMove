@@ -54,6 +54,7 @@ const barChart = () => {
     <div className="chart">
 
       <BarChart className='chartMain'
+        
         width={500}
         height={300}
         data={data}

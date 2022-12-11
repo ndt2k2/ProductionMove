@@ -11,12 +11,55 @@
 
 .mainProduct {
     margin-top: 20px;
+    
 }
 
+.addProduct {
+    display: flex;
+    width: 70%;
+    justify-content:flex-start;
+    margin-right: auto;
+    margin-left: auto;
+}
 
+.addProduct > button {
+    border-radius: 10px;
+    height: 50px;
+    width: 100px;
+    border: 0.5px solid lightgray;
+}
 
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
 
-input {
+.modelProduct, .overlayProduct {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+} 
+
+.overlayProduct {
+    background: rgba(49,49,49,0.8);
+}
+.modelProduct {
+    animation: fadeIn ease-in 0.3s;
+}
+
+.contentProduct {
+    transform: translate(-50%, -50%);
+}
+
+/* input {
     border: none;
     outline: none;
     background: rgba(255, 255, 255, 0.54);
@@ -25,5 +68,5 @@ input {
 
 input[placeholder] {
     padding-left: 10px;
-}
+} */
 
