@@ -29,6 +29,10 @@
     border: 0.5px solid lightgray;
 }
 
+.addProduct > button:hover {
+    background: lightgray;
+}
+
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -59,14 +63,30 @@
     transform: translate(-50%, -50%);
 }
 
-/* input {
-    border: none;
-    outline: none;
-    background: rgba(255, 255, 255, 0.54);
-
+.row {
+    margin-top: 10px;
 }
 
-input[placeholder] {
-    padding-left: 10px;
-} */
+label > input, label > select {
+    border-radius: 10px;
+    height: 40px;
+    margin-top: 5px !important;
+}
 
+label > select {
+    height: 40px;
+    padding: 6px;
+}
+
+input[type="submit"] {
+    float: right;
+    margin-right: 30px;
+    margin-top: 40px;
+    border-radius: 10px;
+    height: 30px;
+    background: rgb(190, 190, 190);
+}
+
+input.submit:hover {
+    background: rgb(146, 146, 146);
+}

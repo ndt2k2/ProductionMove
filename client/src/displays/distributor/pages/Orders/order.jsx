@@ -7,7 +7,8 @@ import Table from "../../../../components/table/table";
 import "./order.css";
 
 const Order = () => {
-  const height = 631;
+  // const height = 631;
+  const height = 650;
   const [rows, setRows] = useState([
     {
       id: 1,
@@ -156,12 +157,12 @@ const Order = () => {
         <NavBar />
         <div className="orderWrapper">
           <div className="listOrder">
-            <p>Danh sánh đơn đặt hàng</p>
+            <h4>Danh sánh đơn đặt hàng</h4>
             <Table {...{ columns, rows, setRows, height, handleOnCellClick }} />
           </div>
 
           <div className="mainOrder">
-            <div>Chi tiết đơn hàng</div>
+            <h4>Chi tiết đơn hàng</h4>
             <div className="orderDetail">
               {!finalClickInfo && (
                 <>

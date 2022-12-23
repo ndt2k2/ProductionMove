@@ -10,11 +10,11 @@ import CancelIcon from "@mui/icons-material/Close";
 import { GridActionsCellItem, GridRowModes } from "@mui/x-data-grid";
 
 import React from "react";
-import { useState, useMemo } from "react";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
 
 export default function Products() {
   const height = 631;
-  const pageSize = 10;
 
   const [rowModesModel, setRowModesModel] = React.useState({});
 
@@ -221,33 +221,51 @@ export default function Products() {
     },
   ];
 
-  const [showProfile, setShowProfile] = useState(false);
+  const [showCreate, setShowCreate] = useState(false);
+
+  const toggleShowCreate = () => {
+    setShowCreate(!showCreate);
+  };
+
+  const { register, handleSubmit } = useForm();
+  const onSubmit = (data) => {
+    console.log(data);
+  };
+
   return (
     <div className="products">
       <Sidebar />
       <div className="wrapper">
         <Navbar />
         <div className="addProduct">
-          <button onClick={() => setShowProfile(!showProfile)}>
-            Add Product
-          </button>
+          <button onClick={toggleShowCreate}>Add Product</button>
         </div>
-        {showProfile && (
-          <div className="modelProduct">
-            <div
-              onClick={() => setShowProfile(!showProfile)}
-              className="overlayProduct"
-            ></div>
-            <div className="contentProduct">
-              <div className="avatarWrapperProduct">
-                <img className="avatar2Product" alt="" />
-              </div>
-              <h3>Ten: Quyet</h3>
-              <h3>tuoi: 19</h3>
-              <h3>Quê: Vĩnh Phúc</h3>
-              <h3>email: quyet123@gmail.com</h3>
-              <h3>Loai tk: admin</h3>
-            </div>
+        {showCreate && (
+          <div className="model">
+            <div onClick={toggleShowCreate} className="overlay"></div>
+            <form className="content" onSubmit={handleSubmit(onSubmit)}>
+              <label className="row">
+                Name
+                <input {...register("name")} placeholder="enter name" />
+              </label>
+              <label className="row">
+                Username
+                <input {...register("username")} placeholder="enter username" />
+              </label>
+              <label className="row">
+                Email
+                <input {...register("email")} placeholder="enter email" />
+              </label>
+              <label className="row">
+                Type Account
+                <select {...register("gender")}>
+                  <option value="female">female</option>
+                  <option value="male">male</option>
+                  <option value="other">other</option>
+                </select>
+              </label>
+              <input className="submit" type="submit" />
+            </form>
           </div>
         )}
         <Table
@@ -256,7 +274,7 @@ export default function Products() {
             rows,
             setRows,
             height,
-            pageSize,
+
             rowModesModel,
             setRowModesModel,
           }}
