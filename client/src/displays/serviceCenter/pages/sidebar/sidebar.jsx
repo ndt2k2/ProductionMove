@@ -21,22 +21,22 @@ export default function Sidebar() {
     console.log(selected)
     const sta = document.getElementById('sta')
     return(
-        <div className="sidebar">
+        <div className="sidebar4">
                
             <Profile/>
 
-            <div className="center">
+            <div className="center4">
                 <ul>
                     <NavLink style={{textDecoration: 'none'}}  to='/'>
                         <li title='Statistical' >
-                            <VscGraphLine className='icon'/>
+                            <VscGraphLine className='icon4'/>
                             <span>Statistical</span>
                         </li>
                     </NavLink>
 
                     <NavLink style={{textDecoration: 'none'}} to='/product'>
                         <li title='product' id='pro' >               
-                            <GiAutoRepair className='icon'/> 
+                            <GiAutoRepair className='icon4'/> 
                             <span>Repair</span>
                         </li >
                     </NavLink>
@@ -44,9 +44,9 @@ export default function Sidebar() {
 
             </div>
 
-            <div className='logout' title='log out'>
-                <div className='logoutWrap'>
-                    <FiLogOut className='iconlogout'/>
+            <div className='logout4' title='log out'>
+                <div className='logoutWrap4'>
+                    <FiLogOut className='iconlogout4'/>
                     <span>Log out</span>
                 </div>
             </div>
