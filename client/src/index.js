@@ -10,7 +10,7 @@ import ServiceCenter from "./displays/serviceCenter/ServiceCenter";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const user = {
   name: "quyet",
-  typeAccount: "Distributor",
+  typeAccount: "Admin",
 };
 
 root.render(

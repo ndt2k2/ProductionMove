@@ -1,28 +1,19 @@
-import React from 'react'
-import Sidebar from '../Sidebar/sidebar'
-import NavBar from '../../../../components/navbar/navbar'
+import React from "react";
+import Sidebar from "../Sidebar/sidebar";
+import NavBar from "../../../../components/navbar/navbar";
 
-import './recallProductions.css'
+import "./recallProductions.css";
 
 const RecallProductions = () => {
   return (
     <div className="recallProductions">
-      <Sidebar/>
+      <Sidebar />
       <div className="wrapper">
-        <NavBar/>
-        <div className="recallWrapper">
-          <div className="navRecall">
-            <p className='errorHeader'>Các sản phẩm lỗi đang xử lý</p>
-            <button className='addProductError'>Thêm sản phẩm lỗi</button>
-          </div>
-
-          <div className="mainRecall">
-            recall
-          </div>
-        </div>
+        <NavBar />
+        <div className="recallWrapper"></div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default RecallProductions
+export default RecallProductions;
