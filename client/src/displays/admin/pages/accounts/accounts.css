@@ -21,35 +21,21 @@
     margin-right: auto;
 }
 
-button:hover{
-    background: rgb(238, 238, 238);
-}
-
-
-.row {
-    margin-right: auto;
-    /* margin-top: 10px; */
-    padding: 5px 25px;
-    width: 100%;
-
-}
-
-.row1 {
-    margin-bottom: 5px;
-}
-
-.submit, .createAccount {
+ .createAccount {
     float: right;
-    height: 60px;
-    width: 120px;
+    height: 45px;
+    width: 100px;
     border: 0.5px solid lightgray;
     border-radius: 10px;
     background: rgba(255, 255, 255, 0.54);
     font-weight: 600;
     color: #888;
+    line-height: 20px;
 }
 
-
+.createAccount:hover {
+    background: lightgray;
+}
 
 input[type="text"],
 select {
@@ -61,67 +47,6 @@ select {
   box-sizing: border-box;
 }
 
-.submit {
-    height: 40px;
-    width: 80px !important;
-    margin-top: 40px !important;
+input[type="text"]:hover {
+    background: lightgray;
 }
-
-/* 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-.model, .overlay {
-    width: 100vw;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    position: fixed;
-}
-
-.model {
-    animation: fadeIn linear 0.3s;
-}
-
-.overlay {
-    background: rgba(49,49,49,0.8);
-}
-.content {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    margin-top: 60px;
-    transform: translate(-50%, -50%);
-    line-height: 1.4;
-    background: #f1f1f1;
-    padding: 14px 28px;
-    border-radius: 10px;
-    max-width: 600px;
-    min-width: 300px;
-} */
-
-.abc {
-    margin-top: 10px;
-}
-
-.submit {
-    margin-top: 20px;
-    border: 0.5px solid lightgray;
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.54);
-    font-weight: 600;
-    color: #888;
-    width: 60px;
-}
-
-

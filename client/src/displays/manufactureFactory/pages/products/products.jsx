@@ -1,14 +1,17 @@
-import './products.css';
-import Sidebar from '../sidebar/sidebar';
-import Navbar from '../../../../components/navbar/navbar';
-import Product from '../../../../components/product/product';
-import {BiSearchAlt2} from 'react-icons/bi';
-import Table from 'react-bootstrap/Table';
-import Form from 'react-bootstrap/Form';
+import "./products.css";
+import Sidebar from "../sidebar/sidebar";
+import Navbar from "../../../../components/navbar/navbar";
+import Table from "../../../../components/table/table";
 
+import EditIcon from "@mui/icons-material/Edit";
+import DeleteIcon from "@mui/icons-material/DeleteOutlined";
+import SaveIcon from "@mui/icons-material/Save";
+import CancelIcon from "@mui/icons-material/Close";
+import { GridActionsCellItem, GridRowModes } from "@mui/x-data-grid";
 
-
-
+import React from "react";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
 const listProduct = [
     {
         "id": "1",

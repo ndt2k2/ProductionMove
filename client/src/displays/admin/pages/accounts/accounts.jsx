@@ -8,15 +8,21 @@ import { BiSearchAlt2 } from "react-icons/bi";
 
 import React from "react";
 import { useState } from "react";
+import { useForm } from "react-hook-form";
 
 export default function AccountManagement() {
+  const height = 631;
   const [showCreate, setShowCreate] = useState(false);
 
   const toggleShowCreate = () => {
     setShowCreate(!showCreate);
   };
 
-  const height = 631;
+  const { register, handleSubmit } = useForm();
+
+  const onSubmit = (data) => {
+    console.log(data);
+  };
 
   const [rows, setRows] = useState([
     {
@@ -170,93 +176,29 @@ export default function AccountManagement() {
       {showCreate && (
         <div className="model">
           <div onClick={toggleShowCreate} className="overlay"></div>
-          <div className="content">
-            <div className="row">
-              <div className="row1">
-                <label>Username</label>
-              </div>
-              <div className="row2">
-                <input
-                  type="text"
-                  id="name"
-                  name="Name"
-                  placeholder="Enter username"
-                />
-              </div>
-            </div>
-            <div className="row">
-              <div className="row1">
-                <label>Name</label>
-              </div>
-              <div className="row2">
-                <input
-                  type="text"
-                  id="name"
-                  name="Name"
-                  placeholder="Enter name"
-                />
-              </div>
-            </div>
-
-            <div className="row">
-              <div className="row1">
-                <label>Password</label>
-              </div>
-              <div className="row2">
-                <input
-                  type="text"
-                  id="name"
-                  name="Name"
-                  placeholder="Enter password"
-                />
-              </div>
-            </div>
-
-            <div className="row">
-              <div className="row1">
-                <label>Email</label>
-              </div>
-              <div className="row2">
-                <input
-                  type="text"
-                  id="email"
-                  name="Email"
-                  placeholder="Enter your email"
-                />
-              </div>
-            </div>
-
-            <div className="row">
-              <div className="row1">
-                <label>Phone number</label>
-              </div>
-              <div className="row2">
-                <input
-                  type="text"
-                  id="age"
-                  name="Age"
-                  placeholder="Enter phone number"
-                />
-              </div>
-            </div>
-
-            <div className="row">
-              <div className="row1">
-                <label>Type Account?</label>
-              </div>
-              <div className="row2">
-                <select name="describes" id="describes">
-                  <option value="student">Admin</option>
-                  <option value="pupil">Distributor</option>
-                  <option value="developer">ManufactureFactory</option>
-                  <option value="developer">ServiceCenter</option>
-                </select>
-              </div>
-            </div>
-            <div>
-              <button className="submit">submit</button>
-            </div>
-          </div>
+          <form className="content" onSubmit={handleSubmit(onSubmit)}>
+            <label className="row">
+              Name
+              <input {...register("name")} placeholder="enter name" />
+            </label>
+            <label className="row">
+              Username
+              <input {...register("username")} placeholder="enter username" />
+            </label>
+            <label className="row">
+              Email
+              <input {...register("email")} placeholder="enter email" />
+            </label>
+            <label className="row">
+              Type Account
+              <select {...register("gender")}>
+                <option value="female">female</option>
+                <option value="male">male</option>
+                <option value="other">other</option>
+              </select>
+            </label>
+            <input type="submit" />
+          </form>
         </div>
       )}
     </div>
