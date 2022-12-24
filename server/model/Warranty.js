@@ -1,15 +1,7 @@
 const mongoose = require('mongoose');
 
 const WarrantySchema = new mongoose.Schema({
-    ID: {
-        type: String,
-        required: true,
-    },
-    error: {
-        type: String,
-        required: true,
-    },
-    status: {
+    idProduct: {
         type: String,
         required: true,
     },
@@ -18,6 +10,22 @@ const WarrantySchema = new mongoose.Schema({
         required: true,
     },
     idServiceCenter: {
+        type: String,
+        required: true,
+    },
+    error: {
+        type: String,
+        required: true,
+    },
+    receivedDate: {
+        type: Date,
+        required: true,
+    },
+    completedDay: {
+        type: Date,
+        required: true,
+    },
+    result: {
         type: String,
         required: true,
     },

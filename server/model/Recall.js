@@ -5,7 +5,7 @@ const RecallSchema = new mongoose.Schema({
         type: String,
         required: true,
         unique: true,
-d    },
+    },
     status: {
         type: String,
         required: true,

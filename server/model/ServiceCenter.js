@@ -5,7 +5,7 @@ const ServiceCenterSchema = new mongoose.Schema({
         type: String,
         required: true,
         unique: true,
-d    },
+    },
     name: {
         type: String,
         required: true,
