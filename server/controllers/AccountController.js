@@ -5,8 +5,20 @@ const AccountController = {
     addAccount: async(req, res) => {
         try {
             const account = new Account(req.body);
-            const saveAccount = await account.save();
-            res.status(200).json(saveAccount);
+            if (req.body.username) {
+                console.log(req.body.username)
+                const acc = Account.findOne({username: req.body.username})
+                console.log(acc.username)
+                if(acc.username == null) { 
+                    console.log("Username was used!!!")
+                    res.status(222).json("1")
+                } else {
+                    const saveAccount = await account.save();
+                    res.status(200).json(saveAccount);
+                }
+
+            }
+            
         } catch (error) {
             res.status(500).json(error);
         }
