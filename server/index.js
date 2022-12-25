@@ -6,7 +6,7 @@ var bodyParser = require("body-parser");
 const morgan = require("morgan");
 const dotenv = require("dotenv");
 
-const userRoute = require("./routes/account");
+const accountRoute = require("./routes/account");
 const productsRoute = require("./routes/products");
 const authroute = require("./routes/authRoutes");
 
@@ -27,7 +27,7 @@ app.get("/api", (req, res) => {
 });
 
 // ROUTES
-app.use("/api/user", userRoute);
+app.use("/api/account", accountRoute);
 app.use("/api/product", productsRoute);
 app.use("/api/auth", authroute);
 
