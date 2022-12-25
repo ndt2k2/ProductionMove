@@ -8,6 +8,7 @@ const dotenv = require("dotenv");
 
 const userRoute = require("./routes/account");
 const productsRoute = require("./routes/products");
+const authroute = require("./routes/authRoutes");
 
 // connect database
 mongoose.connect(
@@ -28,6 +29,7 @@ app.get("/api", (req, res) => {
 // ROUTES
 app.use("/api/user", userRoute);
 app.use("/api/product", productsRoute);
+app.use("/api/auth", authroute);
 
 app.listen(8000, () => {
   console.log("Server is running...");
