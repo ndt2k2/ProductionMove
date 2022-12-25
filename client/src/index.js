@@ -10,7 +10,7 @@ import SignIn from './displays/signIn/signIn';
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const user = {
   name: "quyet",
-  typeAccount: "Admin",
+  typeAccount: "ManufactureFactory",
 };
 
 root.render(

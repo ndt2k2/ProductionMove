@@ -20,36 +20,36 @@ export default function Sidebar() {
         setSelected(selected);
     }
     return(
-        <div className="sidebar">
+        <div className="sidebar3">
                
             <Profile/>
 
-            <div className="center">
+            <div className="center3">
                 <ul>
                     <NavLink style={{textDecoration: 'none'}}  to='/'>
                         <li title='Statistical' >
-                            <VscGraphLine className='icon'/>
+                            <VscGraphLine className='icon3'/>
                             <span>Statistical</span>
                         </li>
                     </NavLink>
 
                     <NavLink style={{textDecoration: 'none'}} to='/product'>
                         <li title='product'>               
-                            <IoCarSport className='icon'/> 
+                            <IoCarSport className='icon3'/> 
                             <span>Products</span>
                         </li >
                     </NavLink>
 
                     <NavLink style={{textDecoration: 'none'}} to='/defective'>
                         <li title='failure'>               
-                            <GiAutoRepair className='icon'/> 
+                            <GiAutoRepair className='icon3'/> 
                             <span>Failures</span>
                         </li >
                     </NavLink>
 
                     <NavLink style={{textDecoration: 'none'}} to='/orders'>
                         <li title='order'>               
-                            <FaBoxes className='icon'/> 
+                            <FaBoxes className='icon3'/> 
                             <span>Orders</span>
                         </li >
                     </NavLink>
@@ -57,9 +57,9 @@ export default function Sidebar() {
 
             </div>
 
-            <div className='logout' title='log out'>
-                <div className='logoutWrap'>
-                    <FiLogOut className='iconlogout'/>
+            <div className='logout3' title='log out'>
+                <div className='logoutWrap3'>
+                    <FiLogOut className='iconlogout3'/>
                     <span>Log out</span>
                 </div>
             </div>

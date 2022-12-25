@@ -16,7 +16,7 @@ import Orders from './pages/orders/order';
 
 export default function ServiceCenter() {
     return(
-        <div className="container3">
+        <div className="container">
             <Router>
                 <Routes>
                     <Route path='/' element = {<Statistical/>}/>
