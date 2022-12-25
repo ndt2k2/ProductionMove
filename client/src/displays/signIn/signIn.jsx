@@ -1,8 +1,9 @@
 import './signIn.css';
 
 import { useContext, useRef,useEffect,useState } from "react";
-
-
+import Slider from './slider/slider'
+import {BsFillPersonFill} from 'react-icons/bs'
+import {RiLockPasswordFill} from 'react-icons/ri'
 export default function SignIn() {
 
     const username= useRef();
@@ -18,19 +19,20 @@ export default function SignIn() {
               <div className= "signInHeader">
                 <h4 className="signInTitle">Production Move</h4>
                 <h4>Sign In</h4>
-                <p>Sign in to connect to Production</p>
-  
+                <Slider className = "slider"/>
               </div>
               <div className="signInForm">
                 <div className="signInFormContainer">
   
                   <form className="signInBox">
                     <div>
-                      <label>Username</label>
-                      <input placeholder="Username" required className="signInInput" ref={username} /*onFocus={handleFocus}*/ />
+                    {/* <span className='spanSI'>Username</span> */}
+                    <BsFillPersonFill className="icon"/>
+                    <input placeholder="Username" required className="signInInput" ref={username} autofocus /*onFocus={handleFocus}*/ />
                     </div>
                     <div>
-                      <label>Password</label>
+                      {/* <span className='spanSI'>Password</span> */}
+                      <RiLockPasswordFill className='icon'/>
                       <input
                       placeholder="Password"
                       type="password"

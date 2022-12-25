@@ -3,12 +3,12 @@
     height: 672px;
     padding-top: 3rem;
     min-width: 100vw;
-    color: #242d49;
-    background: linear-gradient(
+    color: rgb(168, 168, 168, 0%);
+    background-image: linear-gradient(
         106.37deg,
-        #ffe1bc 29.63%,
-        #ffcfd1 51.55%,
-        #f3c6f1 90.85%
+        #0d3a8e 29.63%,
+        #ffffff 51.55%,
+        #3c3b3c 90.85%
     );
     height: 100vh;
     align-items: center;
@@ -19,6 +19,12 @@
     max-width: 1140px;
     margin-left: auto;
     margin-right: auto;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: -1rem;
+    background-image: url(./image/bg2.png);
+    /* background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8hfPFX_-gfox2HvDSZJr7s1loGnWwgKAuYw&usqp=CAU/bg.png); */
+
 }
 
 .signInContainer {
@@ -35,13 +41,14 @@
 .signInHeader .signInTitle {
     margin-bottom: 2.5rem;
     font: 500 35px Trebuchet MS;
-    color: rgb(114, 105, 239);
+    color: rgb(168, 168, 168, 0%);
 }
 
 .signInHeader h4 {
     text-align: center;
-    font-size: 1.3125rem;
+    font-size: 2rem;
     margin-bottom: 0.5rem;
+    
 }
 
 .signInHeader p {
@@ -52,7 +59,7 @@
 .signInForm {
     display: flex;
     flex-direction: column;
-    background-color: #fff;
+    background-color: rgb(255,255,255,32%);
     background-clip: border-box;
     border: 0 solid #f5f7fb;
     border-radius: .25rem;
@@ -60,7 +67,7 @@
 
 .signInFormContainer {
     flex: 1 1 auto;
-    padding: 2rem 2.3rem;
+    padding: 3rem 2.3rem;
 }
 
 .signInForm label {
@@ -73,17 +80,18 @@
 input {
     outline-width: 0;
     font: 400 15px Arial;
-    border-radius: 5px;
+    /* border-radius: 5px; */
     padding: 5px;
     padding-left: 15px;
     color: #495057;
     height: 45px;
     width: 100%;
+    display: inline;
 }
 
 .signInInput {
-    background-color: rgba(230, 235, 245, .25)!important;
-    border: 1px solid #e6ebf5;
+    background-color: rgba(230, 235, 245, 0)!important;
+    border-bottom: 1px solid #000000;
     font-weight: 400;
     line-height: 1.5;
     color: #495057;
@@ -93,7 +101,19 @@ input {
 .signInBox div {
     margin-bottom: 1rem!important;
 }
-
+.icon{
+    font-size: 100%;
+    display: inline;
+    color: rgb(105 71 233);
+    margin-block-end: -3.7rem;
+    margin-inline-start: -0.9rem;}
+span.spanSI {
+    font-size: 15px;
+    font-weight: 600;
+    color: #888;
+    margin-left: 0.25rem;
+    display: inline;
+}
 .signInButton {
     border: 1px solid transparent;
     padding: .47rem .75rem;
@@ -126,6 +146,7 @@ button {
 .signInFooter {
     text-align: center!important;
     margin-top: 2rem;
+    color: rgb(105 71 233);
 }
 
 .signInFooter p {

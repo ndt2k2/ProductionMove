@@ -6,11 +6,11 @@ import Admin from "./displays/admin/Admin";
 import Distributor from "./displays/distributor/Distributor";
 import ManufactureFactory from "./displays/manufactureFactory/ManufactureFactory";
 import ServiceCenter from "./displays/serviceCenter/ServiceCenter";
-
+import SignIn from './displays/signIn/signIn';
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const user = {
   name: "quyet",
-  typeAccount: "Admin",
+  typeAccount: "ManufactureFactory",
 };
 
 root.render(
@@ -21,5 +21,6 @@ root.render(
     {user.typeAccount === "Distributor" && <Distributor />}
     {user.typeAccount === "ManufactureFactory" && <ManufactureFactory />}
     {user.typeAccount === "ServiceCenter" && <ServiceCenter />}
+    {user.typeAccount === "guest" && <SignIn/>}
   </>
 );

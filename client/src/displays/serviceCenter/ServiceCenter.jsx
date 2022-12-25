@@ -13,7 +13,7 @@ import Products from './pages/products/products';
 
 export default function ServiceCenter() {
     return(
-        <div className="container">
+        <div className="container4">
             <Router>
                 <Routes>
                     <Route path='/' element = {<Statistical/>}/>
