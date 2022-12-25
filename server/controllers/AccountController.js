@@ -13,7 +13,7 @@ const AccountController = {
     },
 
     // FIND BY USERNAME
-    findByUsername: async(req, res) => {
+    FindByUsername: async(req, res) => {
         try {
             const username = req.body.username;
             await Account.find({username: username})
