@@ -1,6 +1,7 @@
 import { Box } from "@mui/material";
 
 import { DataGrid } from "@mui/x-data-grid";
+import axios from "axios";
 
 import React from "react";
 import { useState } from "react";
@@ -24,8 +25,17 @@ const Table = ({
     event.defaultMuiPrevented = true;
   };
 
-  const processRowUpdate = (newRow) => {
-    console.log(newRow);
+  const processRowUpdate = async (newRow) => {
+    // console.log(newRow);
+    try {
+      const res = await axios.put(
+        "http://localhost:8000/api/product/" + newRow.id,
+        newRow
+      );
+      console.log(res.data);
+    } catch (error) {
+      console.log(error);
+    }
     const updatedRow = { ...newRow, isNew: false };
     setRows(rows.map((row) => (row.id === newRow.id ? updatedRow : row)));
     return updatedRow;

@@ -37,11 +37,10 @@
     background: lightgray;
 }
 
-input[type="text"],
+/* input[type="text"],
 select {
   width: 100%;
   padding: 12px 20px;
-  /* margin: 8px 0; */
   border-radius: 10px;
   display: inline-block;
   box-sizing: border-box;
@@ -49,4 +48,4 @@ select {
 
 input[type="text"]:hover {
     background: lightgray;
-}
+} */

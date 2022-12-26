@@ -15,7 +15,7 @@ const ProductsController = {
   // find all product
   getAllProduct: async (req, res) => {
     try {
-      const allProduct = await Products.find();
+      const allProduct = await Products.find({ id: 19 });
       res.status(200).json(allProduct);
     } catch (error) {
       res.status(500).json(error);
@@ -38,8 +38,8 @@ const ProductsController = {
   // Update product
   updateProduct: async (req, res) => {
     try {
-      const ID = req.params.ID;
-      const filter = { ID: ID };
+      const ID = req.params.id;
+      const filter = { id: ID };
       const update = req.body;
       const productUpdate = await Products.findOneAndUpdate(filter, update, {
         new: true,
@@ -55,8 +55,8 @@ const ProductsController = {
   // delete product
   deleteProduct: async (req, res) => {
     try {
-      const ID = req.params.ID;
-      const filter = { ID: ID };
+      const ID = req.params.id;
+      const filter = { id: ID };
       const productUpdate = await Products.findOneAndDelete(filter);
       res.status(200).json("xoa thanh cong");
     } catch (error) {
