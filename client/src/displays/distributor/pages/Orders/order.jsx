@@ -1,5 +1,7 @@
 import React from "react";
 import { useState } from "react";
+import { useForm } from "react-hook-form";
+
 import Sidebar from "../Sidebar/sidebar";
 import NavBar from "../../../../components/navbar/navbar";
 import Table from "../../../../components/table/table";
@@ -7,8 +9,17 @@ import Table from "../../../../components/table/table";
 import "./order.css";
 
 const Order = () => {
-  // const height = 631;
   const height = 650;
+  const [showCreate, setShowCreate] = useState(false);
+  const { register, handleSubmit } = useForm();
+
+  const toggleShowCreate = () => {
+    setShowCreate(!showCreate);
+  };
+
+  const onSubmit = (data) => {
+    console.log(data);
+  };
   const [rows, setRows] = useState([
     {
       id: 1,
@@ -195,7 +206,40 @@ const Order = () => {
                 </>
               )}
             </div>
-            <button className="createOrder">Create order</button>
+            <button className="createOrder" onClick={toggleShowCreate}>
+              Create order
+            </button>
+            {showCreate && (
+              <div className="model">
+                <div onClick={toggleShowCreate} className="overlay"></div>
+                <form className="content" onSubmit={handleSubmit(onSubmit)}>
+                  <label className="row">
+                    Name
+                    <input {...register("name")} placeholder="enter name" />
+                  </label>
+                  <label className="row">
+                    Username
+                    <input
+                      {...register("username")}
+                      placeholder="enter username"
+                    />
+                  </label>
+                  <label className="row">
+                    Email
+                    <input {...register("email")} placeholder="enter email" />
+                  </label>
+                  <label className="row">
+                    Type Account
+                    <select {...register("gender")}>
+                      <option value="female">female</option>
+                      <option value="male">male</option>
+                      <option value="other">other</option>
+                    </select>
+                  </label>
+                  <input type="submit" />
+                </form>
+              </div>
+            )}
           </div>
         </div>
       </div>

@@ -39,9 +39,7 @@ export default function Products() {
   };
 
   const handleSaveClick = (id) => () => {
-    // console.log(rowModesModel);
     setRowModesModel({ ...rowModesModel, [id]: { mode: GridRowModes.View } });
-    // console.log(rowModesModel[id]);
   };
 
   const handleDeleteClick = (id) => () => {
@@ -63,11 +61,41 @@ export default function Products() {
 
   const columns = [
     { title: "id", field: "id", width: 90, editable: false },
-    { title: "Name", field: "name", width: 120, editable: true },
-    { title: "Color", field: "color", width: 120, editable: true },
-    { title: "Factory", field: "factory", width: 120, editable: true },
-    { title: "Status", field: "status", width: 120, editable: true },
-    { title: "Owner", field: "owner", width: 120, editable: true },
+    {
+      title: "Name",
+      headerName: "Name",
+      field: "name",
+      width: 120,
+      editable: true,
+    },
+    {
+      title: "Color",
+      headerName: "Color",
+      field: "color",
+      width: 120,
+      editable: true,
+    },
+    {
+      title: "Factory",
+      headerName: "Factory",
+      field: "factory",
+      width: 120,
+      editable: true,
+    },
+    {
+      title: "Status",
+      headerName: "Status",
+      field: "status",
+      width: 120,
+      editable: true,
+    },
+    {
+      title: "Owner",
+      headerName: "Owner",
+      field: "owner",
+      width: 120,
+      editable: true,
+    },
 
     {
       field: "actions",
