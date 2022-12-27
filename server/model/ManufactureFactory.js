@@ -1,11 +1,6 @@
 const mongoose = require('mongoose');
 
 const FactorySchema = new mongoose.Schema({
-    ID: {
-        type: String,
-        required: true,
-        unique: true,
-    },
     name: {
         type: String,
         required: true,

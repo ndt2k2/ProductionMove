@@ -1,16 +1,22 @@
 const mongoose = require('mongoose');
+const Distributor = require('./Distributor');
+const Product = require('./Product');
+const ServiceCenter = require('./ServiceCenter');
 
 const WarrantySchema = new mongoose.Schema({
     idProduct: {
-        type: String,
+        type: mongoose.Schema.Types.ObjectId,
+        ref: Product,
         required: true,
     },
     idDistributor: {
-        type: String,
+        type: mongoose.Schema.Types.ObjectId,
+        ref: Distributor,
         required: true,
     },
     idServiceCenter: {
-        type: String,
+        type: mongoose.Schema.Types.ObjectId,
+        ref: ServiceCenter,
         required: true,
     },
     error: {
