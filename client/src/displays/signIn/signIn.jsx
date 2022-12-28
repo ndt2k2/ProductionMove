@@ -1,60 +1,43 @@
 import './signIn.css';
 import { useNavigate } from "react-router-dom";
-// import axios from "axios";
-// import { ToastContainer, toast } from "react-toastify";
+import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
 import { useContext, useRef,useEffect,useState } from "react";
 import Slider from './slider/slider'
 import {BsFillPersonFill} from 'react-icons/bs'
 import {RiLockPasswordFill} from 'react-icons/ri'
-// import { loginRoute } from "src/"
-
+import { loginCall } from '../../loginCall';
+import { AuthContext } from "../../context/AuthContext";
 
 
 export default function SignIn() {
-  // const navigate = useNavigate();
-  // const [values, setValues] = useState({ username: "", password: "" });
-  // const handleChange = (event) => {
-  //   setValues({ ...values, [event.target.name]: event.target.value });
-  // };
-  // const validateForm = () => {
-  //   const { username, password } = values;
-  //   const toastOptions = {
-  //     position: "bottom-right",
-  //     autoClose: 8000,
-  //     pauseOnHover: true,
-  //     draggable: true,
-  //     theme: "dark",
-  //   };
-  //   if (username === "") {
-  //     toast.error("Email and Password is required.", toastOptions);
-  //     return false;
-  //   } else if (password === "") {
-  //     toast.error("Email and Password is required.", toastOptions);
-  //     return false;
-  //   }
-  //   return true;
-  // };
-  // const handleSubmit = async (event) => {
-  //   event.preventDefault();
-  //   if (validateForm()) {
-  //     const { username, password } = values;
-  //     const { data } = await axios.post(loginRoute, {
-  //       username,
-  //       password,
-  //     });
-  //     // if (data.status === false) {
-  //     //   toast.error(data.msg, toastOptions);
-  //     // }
-  //     if (data.status === true) {
-  //       localStorage.setItem(
-  //         process.env.REACT_APP_LOCALHOST_KEY,
-  //         JSON.stringify(data.user)
-  //       );
+  const username= useRef();
+  const password= useRef();
+  const [formWarning,setFormWarning]= useState("");
 
-  //       navigate("/");
-  //     }
-  //   }
-  // };
+  const {error,dispatch} =useContext(AuthContext);
+  const handleSubmit = (e)=>{
+    e.preventDefault();
+    const userCredentials= {username:username.current.value,password:password.current.value};
+    console.log(userCredentials);
+    loginCall(userCredentials,dispatch);
+    
+  };
+  useEffect(()=>{
+    if(username.current.value =="" ||password.current.value ==""){
+      setFormWarning("Yêu cầu username và password")
+    }
+    if(error==true && username.current.value !="" && password.current.value !="" ){
+      setFormWarning("Có gì đó sai sai. Vui lòng thử lại")
+    }
+  },[error]);
+  const handleChange = () =>{
+    setFormWarning("");
+    password.current.value = "";
+  }
+  const handleFocus= ()=>{
+    setFormWarning("");
+  }
   return (
       <div className="signIn">
         <div className="signInWrapper">
@@ -71,16 +54,16 @@ export default function SignIn() {
                 <div className="signInFormContainer">
   
                   <form className="signInBox" 
-                  // onSubmit={(e) => handleSubmit(e)}
+                  
                   >
                     <div>
                     {/* <span className='spanSI'>Username</span> */}
                     <BsFillPersonFill className="iconSignin"/>
                     <input placeholder="Username" required 
                     className="signInInput" 
-                    // ref={username} 
-                    autofocus
-                    // onChange={(e) => handleChange(e)} /*onFocus={handleFocus}*/ 
+                    ref={username} 
+                    onChange = {handleChange}
+                    onFocus={handleFocus} 
                     />
                     </div>
                     <div>
@@ -91,16 +74,17 @@ export default function SignIn() {
                       type="password"
                       required
                       className="signInInput"
-                      // ref={password}
-                      // onChange={(e) => handleChange(e)}
-                    //   onFocus={handleFocus}
+                      ref={password}
+                      onChange = {()=>{setFormWarning("")}}
+                      onFocus={handleFocus}
                     />
                     </div>
                 
-                    {/* <h4 style={{color: "red",display:"block",height:20 }}>
+                    <h4>
                       {formWarning}
-                    </h4> */}
+                    </h4>
                     <button className="signInButton" type="submit"
+                     onClick={handleSubmit}
                     >
                       Sign In
                     </button>

@@ -47,7 +47,12 @@ export default function Sidebar() {
             <div className='logout4' title='log out'>
                 <div className='logoutWrap4'>
                     <FiLogOut className='iconlogout4'/>
-                    <span>Log out</span>
+                    <button onClick={() =>{
+              localStorage.clear()
+              window.location.href = "http://localhost:3000/"
+            }}>
+          log out
+          </button>
                 </div>
             </div>
                 

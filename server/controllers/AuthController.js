@@ -1,8 +1,7 @@
 const User = require("../model/Account");
 
-const AuthController = {
   //log in
-  logInPost: async (req, res) => {
+  const logInPost = async (req, res) => {
     const username = req.body.username;
     try {
       const user = await User.findOne({ username: username });
@@ -18,7 +17,9 @@ const AuthController = {
     } catch (error) {
       res.status(500).json(error);
     }
-  },
-};
+  }
 
-module.exports = AuthController;
+
+module.exports = {
+  logInPost
+};
