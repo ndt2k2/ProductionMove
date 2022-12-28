@@ -23,6 +23,8 @@
     gap: 10px;
 }
 
+
+
 @media screen and (max-width: 1188px) {
     .mainStatistical {
         display: block;
