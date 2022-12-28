@@ -6,7 +6,13 @@ const router = require("express").Router();
 
 router.post("/add", AccountController.addAccount);
 
-// FIND ACCOUNT WITH USERNAME
+
 router.get("/find_by_username", AccountController.FindByUsername);
+
+router.get("/getAllDistributor", AccountController.getAllDistributor);
+
+router.get("/getAllFactory", AccountController.getAllFactory);
+
+router.get("/getAllServiceCenter", AccountController.FindByUsername);
 
 module.exports = router;

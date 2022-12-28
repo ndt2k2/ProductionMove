@@ -28,6 +28,36 @@ const AccountController = {
       res.status(500).json(error);
     }
   },
+
+  //Get all đại lí
+  getAllDistributor: async (req, res) => {
+    try {
+      const allProduct = await Account.find({"typeAccount" : "Distributor"});
+      res.status(200).json(allProduct);
+    } catch (error) {
+      res.status(500).json(error);
+    }
+  },
+
+  getAllFactory: async (req, res) => {
+    try {
+      const allProduct = await Account.find({"typeAccount": "Factory"});
+      res.status(200).json(allProduct);
+    } catch (error) {
+      res.status(500).json(error);
+  }
+  },
+
+
+  getAllServiceCenter: async (req, res) => {
+    try {
+      const allProduct = await Account.find({"typeAccount" : "Servicecenter"});
+      res.status(200).json(allProduct);
+    } catch (error) {
+      res.status(500).json(error);
+    }
+  },
+
 };
 
 module.exports = AccountController;
