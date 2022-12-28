@@ -19,7 +19,6 @@ export default function Products() {
   const [rowModesModel, setRowModesModel] = React.useState({});
 
   const [rows, setRows] = useState([]);
-
   useEffect(() => {
     const getAllProduct = async () => {
       try {
@@ -31,7 +30,22 @@ export default function Products() {
     };
     getAllProduct();
   }, []);
-
+  let renameKeys = (keysMap, object) =>
+  Object.keys(object).reduce(
+    (acc, key) => ({
+      ...acc,
+      ...{ [keysMap[key] || key]: object[key] },
+    }),
+    {}
+  );
+  for(var i = 0; i < rows.length; i++){
+    rows[i] = renameKeys(
+      {
+        _id: "id"
+      },
+      rows[i]
+    );
+  }
   console.log("Rerender");
 
   const handleEditClick = (id) => () => {
