@@ -11,14 +11,14 @@
 
 }
 
-ul{
+div.center3 ul{
     list-style: none;
     margin: 0;
-    padding: 0;
+    padding: 0rem;
     width: 100%;
 }
 
-li {
+li,button {
     height: 50px;
     display: flex;
     align-items: center;
@@ -53,9 +53,9 @@ ul :hover {
     font-size: 30px;
 }
 
-.iconlogout3 {
+/* .iconlogout3 {
     margin-left: 30px;
-}
+} */
 
 
 span {
@@ -63,6 +63,13 @@ span {
     font-weight: 600;
     color: #888;
     margin-left: 10px;
+}
+div.logout3 button {
+    font-size: 15px;
+    font-weight: 600;
+    color: #888;
+    width: 100%;
+    border: none;
 }
 
 a.active>li {
