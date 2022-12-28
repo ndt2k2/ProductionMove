@@ -22,5 +22,14 @@ const FactoryController = {
       res.status(500).json(error);
     }
   },
+
+  getAllFactory: async (req, res) => {
+    try {
+      const allProduct = await ManufactureFactory.find({});
+      res.status(200).json(allProduct);
+    } catch (error) {
+      res.status(500).json(error);
+  }
+  },
 };
 module.exports = FactoryController;

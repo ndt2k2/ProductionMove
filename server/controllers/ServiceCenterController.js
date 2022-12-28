@@ -23,6 +23,16 @@ const ServiceCenterController = {
     }
   },
 
+  //get All
+  getAllServiceCenter: async (req, res) => {
+    try {
+      const allProduct = await ServiceCenter.find({});
+      res.status(200).json(allProduct);
+    } catch (error) {
+      res.status(500).json(error);
+    }
+  },
+
 
 };
 module.exports = ServiceCenterController;

@@ -33,5 +33,15 @@ const DistributorController = {
       res.status(500).json(error);
     }
   },
+
+  //get All
+  getAllDistributor: async (req, res) => {
+    try {
+      const allProduct = await Distributor.find({});
+      res.status(200).json(allProduct);
+    } catch (error) {
+      res.status(500).json(error);
+    }
+  },
 };
 module.exports = DistributorController;
