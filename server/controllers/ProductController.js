@@ -15,7 +15,12 @@ const ProductsController = {
   // find all product
   getAllProduct: async (req, res) => {
     try {
-      const allProduct = await Products.find({}).populate("idFactory");
+      const allProduct = await Products.find()
+        .populate("idFactory", "name")
+        .populate("idDistributor", "name")
+        .populate("idProductLine", "name")
+        .populate("location", "name")
+        .populate("owner", "name");
       res.status(200).json(allProduct);
     } catch (error) {
       res.status(500).json(error);

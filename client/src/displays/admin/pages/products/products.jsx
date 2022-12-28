@@ -78,7 +78,14 @@ export default function Products() {
     {
       title: "Factory",
       headerName: "Factory",
-      field: "factory",
+      field: "idFactory",
+      width: 120,
+      editable: true,
+    },
+    {
+      title: "Distributor",
+      headerName: "Distributor",
+      field: "idDistributor",
       width: 120,
       editable: true,
     },
