@@ -39,7 +39,6 @@ const ProductsController = {
   updateProduct: async (req, res) => {
     try {
       const ID = req.params.id;
-      const filter = { id: ID };
       const update = req.body;
       const productUpdate = await Products.findOneAndUpdate(filter, update, {
         new: true,

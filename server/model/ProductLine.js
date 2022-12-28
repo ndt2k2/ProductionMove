@@ -5,6 +5,10 @@ const ProductLineSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    typeFuel: {
+        type: String,
+        required: true,
+    },
     textDescription: {
         type: String,
         required: true,
