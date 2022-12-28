@@ -1,16 +1,22 @@
 const mongoose = require('mongoose');
+const Customer = require('./Customer');
+const Distributor = require('./Distributor');
+const Product = require('./Product');
 
 const ReceiptSchema = new mongoose.Schema({
     idCustomer: {
-        type: String,
+        type: mongoose.Schema.Types.ObjectId,
+        ref: Customer,
         required: true,
     },
     idDistributor: {
-        type: String,
+        type: mongoose.Schema.Types.ObjectId,
+        ref: Distributor,
         required: true,
     },
     idProduct: {
-        type: String,
+        type: mongoose.Schema.Types.ObjectId,
+        ref: Product,
         required: true,
     },
     price: {

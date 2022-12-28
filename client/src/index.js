@@ -16,7 +16,7 @@ import {
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const user = {
   name: "quyet",
-  typeAccount: "ManufactureFactory",
+  typeAccount: "Admin",
 };
 
 root.render(
