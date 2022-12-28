@@ -27,6 +27,39 @@ const ProductsController = {
     }
   },
 
+  getAllTest: async (req, res) => {
+    try {
+      const allProduct = await Products.find()
+        .populate("idFactory", "name")
+        .populate("idDistributor", "name")
+        .populate("idProductLine", "name")
+        .populate("location", "name")
+        .populate("owner", "name");
+      // res.status(200).json(allProduct);
+      const result = [];
+      if (allProduct.length !== null) {
+        for (var i = 0; i < allProduct.length; i++) {
+          const temp = {
+            id: allProduct[i]._id,
+            name: allProduct[i].name,
+            color: allProduct[i].color,
+            Factory: allProduct[i].idFactory.name,
+            Distributor: allProduct[i].idDistributor.name,
+            Status: allProduct[i].status,
+            Location: allProduct[i].name,
+            Owner: allProduct[i].name,
+          };
+          result.push(temp);
+        }
+        res.status(200).json(result);
+      } else {
+        res.json("khong co product");
+      }
+    } catch (error) {
+      res.status(500).json(error);
+    }
+  },
+
   // find all product in distributor
   getAllProductInDistributor: async (req, res) => {
     try {
