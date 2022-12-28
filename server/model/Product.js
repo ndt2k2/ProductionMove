@@ -31,18 +31,9 @@ const ProductSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    image: {
-      type: String,
-      required: true,
-    },
     owner: {
       type: mongoose.Schema.Types.ObjectId,
       ref: Customer,
-      required: false,
-    },
-    deliveryTime: {
-      type: Date,
-      required: false,
     },
   },
   { timestamps: true }
