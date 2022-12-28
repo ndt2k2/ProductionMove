@@ -15,11 +15,11 @@ const AccountSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    id: {
+    name: {
         type: String,
         required: true
     },
-    name: {
+    location: {
         type: String,
         required: true
     },

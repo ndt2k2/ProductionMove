@@ -15,7 +15,7 @@ const ProductsController = {
   // find all product
   getAllProduct: async (req, res) => {
     try {
-      const allProduct = await Products.find({ id: 19 });
+      const allProduct = await Products.find({}).populate("idFactory");
       res.status(200).json(allProduct);
     } catch (error) {
       res.status(500).json(error);

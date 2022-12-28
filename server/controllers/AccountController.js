@@ -8,7 +8,7 @@ const AccountController = {
 
       const acc = await Account.findOne({ username: username });
       if (acc !== null) {
-        res.json(acc);
+        res.json("Tài khoản đã tồn tại");
       } else {
         const saveAccount = new Account(req.body);
         saveAccount.save();
