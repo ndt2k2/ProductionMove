@@ -4,6 +4,6 @@ const router = require("express").Router();
 
 
 router.post("/add", ServiceCenterController.addServiceCenter);
-router.delete("/:id", ServiceCenterController.deleteServiceCenter);
+router.delete("/delete", ServiceCenterController.deleteServiceCenter);
 
 module.exports = router;

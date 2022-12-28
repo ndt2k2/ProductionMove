@@ -4,7 +4,8 @@ const router = require("express").Router();
 
 
 router.post("/add", DistributorController.addDistributor);
-router.delete("/:id", DistributorController.deleteDistributor);
+router.post("/addcustomer",DistributorController.addCustomer);
+router.delete("/delete", DistributorController.deleteDistributor);
 
 
 module.exports = router;

@@ -15,9 +15,8 @@ const FactoryController = {
   // delete 
   deleteFactory: async (req, res) => {
     try {
-      const ID = req.params.id;
-      const filter = { id: ID };
-      const productUpdate = await ManufactureFactory.findOneAndDelete(filter);
+      const ID = req.body._id;
+      const productUpdate = await ManufactureFactory.findOneAndDelete({_id: ID});
       res.status(200).json("xoa thanh cong");
     } catch (error) {
       res.status(500).json(error);
