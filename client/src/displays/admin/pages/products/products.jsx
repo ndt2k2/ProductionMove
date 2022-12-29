@@ -19,7 +19,6 @@ export default function Products() {
   const [rowModesModel, setRowModesModel] = React.useState({});
 
   const [rows, setRows] = useState([]);
-
   useEffect(() => {
     const getAllProduct = async () => {
       try {
@@ -31,17 +30,80 @@ export default function Products() {
     };
     getAllProduct();
   }, []);
+  let renameKeys = (keysMap, object) =>
+  Object.keys(object).reduce(
+    (acc, key) => ({
+      ...acc,
+      ...{ [keysMap[key] || key]: object[key] },
+    }),
+    {}
+  );
+  if( rows.length !== null && rows !== null){
+  for(var i = 0; i < rows.length; i++){
+    rows[i] = renameKeys(
+      {
+        _id: "id"
+      },
+      rows[i]
+    );
+      console.log(rows[i])
+  }}
+  if(rows !== null){
 
-  console.log("Rerender");
+    for(var i = 0; i < rows.length; i++){
+      // let nameD = rows[i].idDistributor.name
+      // rows[i].Distributor = nameD
+      let nameO = rows[i].owner.name
+      rows[i].Owner = nameO
+      // let nameF = rows[i].idFactory.name
+      // rows[i].Factory = nameF
 
+      // let nameF = rows[i].idFactory.name
+      // let obj1 = {
+      //   Distributor: nameD,
+      //   owner: nameO,
+      //   idFactory: nameF
+      // };
+      // let obj2 = {
+      //  idFactory: nameF
+      // };
+      //  let obji = rows[i]
+        // rows[i] = {
+        //     ...obji,
+        //     ...obj1,            
+        //   }
+      //  let obji2 = rows[i]
+      //   rows[i] = {
+      //       ...obji2,
+      //       ...obj2,            
+      //     }
+
+    }
+    }
+    if(rows !== null){
+
+      for(var i = 0; i < rows.length; i++){
+        let nameD = rows[i].idDistributor.name
+        rows[i].Distributor = nameD
+        // let nameO = rows[i].owner.name
+        // rows[i].Owner = nameO
+        // let nameF = rows[i].idFactory.name
+        // rows[i].Factory = nameF
+      }
+      }
+      if(rows !== null){
+
+        for(var i = 0; i < rows.length; i++){
+          let nameF = rows[i].idFactory.name
+          rows[i].Factory = nameF
+        }
+        }
   const handleEditClick = (id) => () => {
     setRowModesModel({ ...rowModesModel, [id]: { mode: GridRowModes.Edit } });
   };
 
   const handleSaveClick = (id) => () => {
-    // console.log(rowModesModel);
     setRowModesModel({ ...rowModesModel, [id]: { mode: GridRowModes.View } });
-    // console.log(rowModesModel[id]);
   };
 
   const handleDeleteClick = (id) => () => {
@@ -62,12 +124,56 @@ export default function Products() {
   };
 
   const columns = [
-    { title: "id", field: "id", width: 90, editable: false },
-    { title: "Name", field: "name", width: 120, editable: true },
-    { title: "Color", field: "color", width: 120, editable: true },
-    { title: "Factory", field: "factory", width: 120, editable: true },
-    { title: "Status", field: "status", width: 120, editable: true },
-    { title: "Owner", field: "owner", width: 120, editable: true },
+    { title: "id", field: "id", width: 250, editable: false },
+    {
+      title: "Name",
+      headerName: "Name",
+      field: "name",
+      width: 120,
+      editable: true,
+    },
+    {
+      title: "Color",
+      headerName: "Color",
+      field: "color",
+      width: 120,
+      editable: true,
+    },
+    {
+      title: "Factory",
+      headerName: "Factory",
+      field: "Factory",
+      width: 120,
+      editable: true,
+    },
+    {
+      title: "Distributor",
+      headerName: "Distributor",
+      field: "Distributor",
+      width: 120,
+      editable: true,
+    },
+    {
+      title: "Status",
+      headerName: "Status",
+      field: "Status",
+      width: 120,
+      editable: true,
+    },
+    {
+      title: "Location",
+      headerName: "Location",
+      field: "Location",
+      width: 120,
+      editable: true,
+    },
+    {
+      title: "Owner",
+      headerName: "Owner",
+      field: "Owner",
+      width: 120,
+      editable: true,
+    },
 
     {
       field: "actions",
@@ -113,26 +219,26 @@ export default function Products() {
     },
   ];
 
-  const [showCreate, setShowCreate] = useState(false);
+  // const [showCreate, setShowCreate] = useState(false);
 
-  const toggleShowCreate = () => {
-    setShowCreate(!showCreate);
-  };
+  // const toggleShowCreate = () => {
+  //   setShowCreate(!showCreate);
+  // };
 
-  const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => {
-    console.log(data);
-  };
+  // const { register, handleSubmit } = useForm();
+  // const onSubmit = (data) => {
+  //   console.log(data);
+  // };
 
   return (
     <div className="products">
       <Sidebar />
       <div className="wrapper">
         <Navbar />
-        <div className="addProduct">
+        {/* <div className="addProduct">
           <button onClick={toggleShowCreate}>Add Product</button>
-        </div>
-        {showCreate && (
+        </div> */}
+        {/* {showCreate && (
           <div className="model">
             <div onClick={toggleShowCreate} className="overlay"></div>
             <form className="content" onSubmit={handleSubmit(onSubmit)}>
@@ -159,7 +265,7 @@ export default function Products() {
               <input className="submit" type="submit" />
             </form>
           </div>
-        )}
+        )} */}
         <Table
           {...{
             columns,

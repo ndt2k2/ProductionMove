@@ -1,18 +1,17 @@
 const mongoose = require('mongoose');
 
-const RecallSchema = new mongoose.Schema({
-    ID: {
-        type: String,
-        required: true,
-        unique: true,
-    },
-    status: {
+const CustomerSchema = new mongoose.Schema({
+    name: {
         type: String,
         required: true,
     },
-    error: {
+    numPhone: {
+        type: String,
+        required: true,
+    },
+    location: {
         type: String,
         required: true,
     }
 }, { timestamps: true });
-module.exports = mongoose.model("Recall", RecallSchema);
+module.exports = mongoose.model("Customer", CustomerSchema);

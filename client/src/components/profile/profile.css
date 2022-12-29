@@ -73,6 +73,12 @@ img {
     width: 70px;
 }
 
+.avatar {
+    height: 60px;
+    width: 60px;
+    margin-top: 10px;
+}
+
 h3 {
     padding-top: 10px;
     /* font-size: 15px; */

@@ -1,14 +1,12 @@
 const mongoose = require("mongoose");
+const Account = require("./Account");
+const Customer = require("./Customer");
+const Distributor = require("./Distributor");
+const ManufactureFactory = require("./ManufactureFactory");
+const ProductLine = require("./ProductLine");
 
 const ProductSchema = new mongoose.Schema(
   {
-    id: {
-      type: String,
-      required: true,
-      unique: true,
-      required: true,
-      unique: true,
-    },
     name: {
       type: String,
       required: true,
@@ -17,28 +15,33 @@ const ProductSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    factory: {
-      type: String,
+    idFactory: {
+      type: mongoose.Schema.Types.ObjectId,
       required: true,
+      ref: Account,
     },
-    distributor: {
-      type: String,
+    idDistributor: {
+      type: mongoose.Schema.Types.ObjectId,
       required: false,
+      ref: Account,
+    },
+    idProductLine: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: false,
+      ref: ProductLine,
     },
     status: {
-      type: Array,
-      required: true,
-    },
-    image: {
       type: String,
       required: true,
+    },
+    location: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: false,
+      ref: Account,
     },
     owner: {
-      type: String,
-      required: false,
-    },
-    deliveryTime: {
-      type: Date,
+      type: mongoose.Schema.Types.ObjectId,
+      ref: Customer,
       required: false,
     },
   },

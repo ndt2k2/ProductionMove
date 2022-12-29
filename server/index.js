@@ -9,6 +9,10 @@ const dotenv = require("dotenv");
 const accountRoute = require("./routes/account");
 const productsRoute = require("./routes/products");
 const authroute = require("./routes/authRoutes");
+const distributorRoute = require("./routes/distributor");
+const factoryRoute = require("./routes/factory");
+const serviceCenterRoute = require("./routes/serviceCenter");
+const productLineRoute = require("./routes/productLine");
 
 // connect database
 mongoose.connect(
@@ -30,6 +34,10 @@ app.get("/api", (req, res) => {
 app.use("/api/account", accountRoute);
 app.use("/api/product", productsRoute);
 app.use("/api/auth", authroute);
+app.use("/api/distributor", distributorRoute);
+app.use("/api/factory", factoryRoute)
+app.use("/api/serviceCenter", serviceCenterRoute);
+app.use("/api/productLine",productLineRoute)
 
 app.listen(8000, () => {
   console.log("Server is running...");
