@@ -36,7 +36,7 @@ function App() {
     if (user.typeAccount === "Factory"){
       return <ManufactureFactory/>
     }
-    if (user.typeAccount === "ServiceCenter"){
+    if (user.typeAccount === "Servicecenter"){
       return <ServiceCenter/>
     }else{
       return(
