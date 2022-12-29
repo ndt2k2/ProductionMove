@@ -124,7 +124,7 @@ export default function Products() {
   };
 
   const columns = [
-    { title: "id", field: "id", width: 90, editable: false },
+    { title: "id", field: "id", width: 250, editable: false },
     {
       title: "Name",
       headerName: "Name",
@@ -156,7 +156,14 @@ export default function Products() {
     {
       title: "Status",
       headerName: "Status",
-      field: "status",
+      field: "Status",
+      width: 120,
+      editable: true,
+    },
+    {
+      title: "Location",
+      headerName: "Location",
+      field: "Location",
       width: 120,
       editable: true,
     },
@@ -212,26 +219,26 @@ export default function Products() {
     },
   ];
 
-  const [showCreate, setShowCreate] = useState(false);
+  // const [showCreate, setShowCreate] = useState(false);
 
-  const toggleShowCreate = () => {
-    setShowCreate(!showCreate);
-  };
+  // const toggleShowCreate = () => {
+  //   setShowCreate(!showCreate);
+  // };
 
-  const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => {
-    console.log(data);
-  };
+  // const { register, handleSubmit } = useForm();
+  // const onSubmit = (data) => {
+  //   console.log(data);
+  // };
 
   return (
     <div className="products">
       <Sidebar />
       <div className="wrapper">
         <Navbar />
-        <div className="addProduct">
+        {/* <div className="addProduct">
           <button onClick={toggleShowCreate}>Add Product</button>
-        </div>
-        {showCreate && (
+        </div> */}
+        {/* {showCreate && (
           <div className="model">
             <div onClick={toggleShowCreate} className="overlay"></div>
             <form className="content" onSubmit={handleSubmit(onSubmit)}>
@@ -258,7 +265,7 @@ export default function Products() {
               <input className="submit" type="submit" />
             </form>
           </div>
-        )}
+        )} */}
         <Table
           {...{
             columns,
