@@ -13,6 +13,15 @@ const ToyProductsController = {
     }
   },
 
+  deleteProduct: async (req, res) => {
+    try {
+        const productUpdate = await ToyProducts.deleteMany({owner: req.boby.owner}) 
+      res.status(200).json("xoa thanh cong");
+    } catch (error) {
+      res.status(500).json(error);
+    }
+  },
+
   // find all product
   getAllProduct: async (req, res) => {
     try {

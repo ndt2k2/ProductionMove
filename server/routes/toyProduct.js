@@ -10,6 +10,6 @@ router.post("/getInLocation", ToyProductsController.getAllProductInLocation);
 router.post("/countQuantification", ToyProductsController.countQuantification);
 router.get("/getAllTest", ToyProductsController.getAllTest);
 
-router.delete("/:id", ToyProductsController.deleteProduct);
+router.delete("/", ToyProductsController.deleteProduct);
 
 module.exports = router;
