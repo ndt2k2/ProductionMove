@@ -38,6 +38,7 @@ export default function Products() {
     }),
     {}
   );
+  if( rows.length !== null && rows !== null){
   for(var i = 0; i < rows.length; i++){
     rows[i] = renameKeys(
       {
@@ -45,9 +46,58 @@ export default function Products() {
       },
       rows[i]
     );
-  }
-  console.log("Rerender");
+      console.log(rows[i])
+  }}
+  if(rows !== null){
 
+    for(var i = 0; i < rows.length; i++){
+      // let nameD = rows[i].idDistributor.name
+      // rows[i].Distributor = nameD
+      let nameO = rows[i].owner.name
+      rows[i].Owner = nameO
+      // let nameF = rows[i].idFactory.name
+      // rows[i].Factory = nameF
+
+      // let nameF = rows[i].idFactory.name
+      // let obj1 = {
+      //   Distributor: nameD,
+      //   owner: nameO,
+      //   idFactory: nameF
+      // };
+      // let obj2 = {
+      //  idFactory: nameF
+      // };
+      //  let obji = rows[i]
+        // rows[i] = {
+        //     ...obji,
+        //     ...obj1,            
+        //   }
+      //  let obji2 = rows[i]
+      //   rows[i] = {
+      //       ...obji2,
+      //       ...obj2,            
+      //     }
+
+    }
+    }
+    if(rows !== null){
+
+      for(var i = 0; i < rows.length; i++){
+        let nameD = rows[i].idDistributor.name
+        rows[i].Distributor = nameD
+        // let nameO = rows[i].owner.name
+        // rows[i].Owner = nameO
+        // let nameF = rows[i].idFactory.name
+        // rows[i].Factory = nameF
+      }
+      }
+      if(rows !== null){
+
+        for(var i = 0; i < rows.length; i++){
+          let nameF = rows[i].idFactory.name
+          rows[i].Factory = nameF
+        }
+        }
   const handleEditClick = (id) => () => {
     setRowModesModel({ ...rowModesModel, [id]: { mode: GridRowModes.Edit } });
   };
@@ -92,14 +142,14 @@ export default function Products() {
     {
       title: "Factory",
       headerName: "Factory",
-      field: "idFactory",
+      field: "Factory",
       width: 120,
       editable: true,
     },
     {
       title: "Distributor",
       headerName: "Distributor",
-      field: "idDistributor",
+      field: "Distributor",
       width: 120,
       editable: true,
     },
@@ -113,7 +163,7 @@ export default function Products() {
     {
       title: "Owner",
       headerName: "Owner",
-      field: "owner",
+      field: "Owner",
       width: 120,
       editable: true,
     },
