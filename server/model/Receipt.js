@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const Customer = require('./Customer');
-const Distributor = require('./Distributor');
 const Product = require('./Product');
 
 const ReceiptSchema = new mongoose.Schema({

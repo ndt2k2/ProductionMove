@@ -9,15 +9,12 @@ const dotenv = require("dotenv");
 const userRoute = require("./routes/account");
 const productsRoute = require("./routes/products");
 const authroute = require("./routes/authRoutes");
-const distributorRoute = require("./routes/distributor");
-const factoryRoute = require("./routes/factory");
-const serviceCenterRoute = require("./routes/serviceCenter");
 const productLineRoute = require("./routes/productLine");
 const toyProductLineRoute = require("./routes/toyProductLine");
 const toyProductRoute = require("./routes/toyProduct");
 
 
-
+const warrantyRoute = require("./routes/warranty");
 // connect database
 mongoose.connect(
   "mongodb+srv://20020467:22122002@cluster0.y3un7jc.mongodb.net/?retryWrites=true&w=majority",
@@ -38,14 +35,12 @@ app.get("/api", (req, res) => {
 app.use("/api/account", userRoute);
 app.use("/api/product", productsRoute);
 app.use("/api/auth", authroute);
-app.use("/api/distributor", distributorRoute);
-app.use("/api/factory", factoryRoute)
-app.use("/api/serviceCenter", serviceCenterRoute);
 app.use("/api/productLine",productLineRoute);
 app.use("/api/toyProductLine",toyProductLineRoute);
 app.use("/api/toyProduct",toyProductRoute)
 
 
+app.use("/api/warranty",warrantyRoute)
 
 app.listen(8000, () => {
   console.log("Server is running...");

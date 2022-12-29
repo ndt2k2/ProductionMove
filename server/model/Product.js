@@ -1,8 +1,6 @@
 const mongoose = require("mongoose");
 const Account = require("./Account");
 const Customer = require("./Customer");
-const Distributor = require("./Distributor");
-const ManufactureFactory = require("./ManufactureFactory");
 const ProductLine = require("./ProductLine");
 
 const ProductSchema = new mongoose.Schema(
