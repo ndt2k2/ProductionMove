@@ -80,14 +80,18 @@ const ToyProductsController = {
       const allProduct = await Products.find(
         { status: "New",
           located: req.body._id}
-        );
+        )
+        .populate("idFactory", "name")
+        .populate("located", "name")
+        .populate("owner", "name");
+
       for(let i = 0;i< getAllProductLineTo.length;i++){
         for(let j = 0;j< allProduct.length;j++){
-          if(allProduct[j].idProductLine === getAllProductLineTo[i]._id){
-            count[i] = count[i]+1;          }
+          if(JSON.stringify(getAllProductLineTo[i]._id) === JSON.stringify(allProduct[j].idProductLine)){
+            count[i] = count[i]+1;   
+          }
         }
       }
-      
       res.status(200).json(count);
     } catch (error) {
       res.status(500).json(error);
