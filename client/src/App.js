@@ -33,7 +33,7 @@ function App() {
     if (user.typeAccount === "Distributor" ){
       return <Distributor/>
     }
-    if (user.typeAccount === "ManufactureFactory"){
+    if (user.typeAccount === "Factory"){
       return <ManufactureFactory/>
     }
     if (user.typeAccount === "ServiceCenter"){

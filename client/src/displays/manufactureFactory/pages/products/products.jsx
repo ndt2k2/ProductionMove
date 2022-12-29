@@ -9,14 +9,52 @@ import SaveIcon from "@mui/icons-material/Save";
 import CancelIcon from "@mui/icons-material/Close";
 import { GridActionsCellItem, GridRowModes } from "@mui/x-data-grid";
 
-import React from "react";
+import axios from "axios";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 export default function Products() {
     const height = 631;
-  
     const [rowModesModel, setRowModesModel] = React.useState({});
-  
+    const [rows, setRows] = useState([]);
+    const [count, setCount] = useState([]);
+    useEffect(() => {
+      const getAllProduct = async () => {
+        try {
+          const res = await axios.get("http://localhost:8000/api/toyProductLine/getAll");
+          const res2 = await axios.post("http://localhost:8000/api/toyProduct/countQuantification",JSON.parse(localStorage.user));
+          setCount(res2.data);
+          setRows(res.data);
+        } catch (error) {
+          console.log(error);
+        }
+      };
+      getAllProduct();
+    }, []);
+    let renameKeys = (keysMap, object) =>
+    Object.keys(object).reduce(
+      (acc, key) => ({
+        ...acc,
+        ...{ [keysMap[key] || key]: object[key] },
+      }),
+      {}
+    );
+    if( rows.length !== null && rows !== null){
+    for(var i = 0; i < rows.length; i++){
+      rows[i] = renameKeys(
+        {
+          _id: "id"
+        },
+        rows[i]
+      );
+    }}
+    console.log("day",count)
+    if(rows !== null){
+
+      for(var i = 0; i < rows.length; i++){
+        rows[i].quantification = count[i]
+      }
+      }
     const handleEditClick = (id) => () => {
       setRowModesModel({ ...rowModesModel, [id]: { mode: GridRowModes.Edit } });
       console.log(rowModesModel)
@@ -45,140 +83,140 @@ export default function Products() {
       }
     };
   
-    const [rows, setRows] = useState([
-      {
-        id:1,
-        name: "Vios",
-        quantification: 1000,
-        size: "4.885 x 1.840 x 1.445",
-        price:"700",
-        seats:"5",
-        engine:"1.5 turbo",
-        xylanh:"1.969cc",
-        hp:"640Nm",
-      },
-      {
-        id:2,
-        name: "Camry",
-        quantification: 1000,
-        size: "4.885 x 1.840 x 1.445",
-        price:"700",
-        seats:"5",
-        engine:"1.5 turbo",
-        xylanh:"1.969cc",
-        hp:"640Nm",
-      },
-      {
-        id:3,
-        name: "Altis",
-        quantification: 1000,
-        size: "4.885 x 1.840 x 1.445",
-        price:"700",
-        seats:"5",
-        engine:"1.5 turbo",
-        xylanh:"1.969cc",
-        hp:"640Nm",
-      },
-      {
-        id:4,
-        name: "Cross",
-        quantification: 1000,
-        size: "4.885 x 1.840 x 1.445",
-        price:"700",
-        seats:"5",
-        engine:"1.5 turbo",
-        xylanh:"1.969cc",
-        hp:"640Nm",
-      },
-      {
-        id:5,
-        name: "Hillux",
-        quantification: 1000,
-        size: "4.885 x 1.840 x 1.445",
-        price:"700",
-        seats:"5",
-        engine:"1.5 turbo",
-        xylanh:"1.969cc",
-        hp:"640Nm",
-      },
-      {
-        id:6,
-        name: "Fortuner",
-        quantification: 1000,
-        size: "4.885 x 1.840 x 1.445",
-        price:"700",
-        seats:"5",
-        engine:"1.5 turbo",
-        xylanh:"1.969cc",
-        hp:"640Nm",
-      },
-      {
-        id:7,
-        name: "Rav4",
-        quantification: 1000,
-        size: "4.885 x 1.840 x 1.445",
-        price:"700",
-        seats:"5",
-        engine:"1.5 turbo",
-        xylanh:"1.969cc",
-        hp:"640Nm",
-      },
-      {
-        id:8,
-        name: "Vios",
-        quantification: 1000,
-        size: "4.885 x 1.840 x 1.445",
-        prince:"700",
-        seats:"5",
-        engine:"1.5 turbo",
-        xylanh:"1.969cc",
-        hp:"640Nm",
-      },
-      {
-        id:9,
-        name: "Vios",
-        quantification: 1000,
-        size: "4.885 x 1.840 x 1.445",
-        price:"700",
-        seats:"5",
-        engine:"1.5 turbo",
-        xylanh:"1.969cc",
-        hp:"640Nm",
-      },
-      {
-        id:10,
-        name: "Vios",
-        quantification: 1000,
-        size: "4.885 x 1.840 x 1.445",
-        price:"700",
-        seats:"5",
-        engine:"1.5 turbo",
-        xylanh:"1.969cc",
-        hp:"640Nm",
-      },
-      {
-        id:11,
-        name: "Vios",
-        quantification: 1000,
-        size: "4.885 x 1.840 x 1.445",
-        price:"700",
-        seats:"5",
-        engine:"1.5 turbo",
-        xylanh:"1.969cc",
-        hp:"640Nm",
-      },
-      {
-        id:12,
-        name: "Vios",
-        quantification: 1000,
-        size: "4.885 x 1.840 x 1.445",
-        price:"700",
-        seats:"5",
-        engine:"1.5 turbo",
-        xylanh:"1.969cc",
-        hp:"640Nm",
-      },
-    ]);
+    // const [rows, setRows] = useState([
+    //   {
+    //     id:1,
+    //     name: "Vios",
+    //     quantification: 1000,
+    //     size: "4.885 x 1.840 x 1.445",
+    //     price:"700",
+    //     seats:"5",
+    //     engine:"1.5 turbo",
+    //     xylanh:"1.969cc",
+    //     hp:"640Nm",
+    //   },
+    //   {
+    //     id:2,
+    //     name: "Camry",
+    //     quantification: 1000,
+    //     size: "4.885 x 1.840 x 1.445",
+    //     price:"700",
+    //     seats:"5",
+    //     engine:"1.5 turbo",
+    //     xylanh:"1.969cc",
+    //     hp:"640Nm",
+    //   },
+    //   {
+    //     id:3,
+    //     name: "Altis",
+    //     quantification: 1000,
+    //     size: "4.885 x 1.840 x 1.445",
+    //     price:"700",
+    //     seats:"5",
+    //     engine:"1.5 turbo",
+    //     xylanh:"1.969cc",
+    //     hp:"640Nm",
+    //   },
+    //   {
+    //     id:4,
+    //     name: "Cross",
+    //     quantification: 1000,
+    //     size: "4.885 x 1.840 x 1.445",
+    //     price:"700",
+    //     seats:"5",
+    //     engine:"1.5 turbo",
+    //     xylanh:"1.969cc",
+    //     hp:"640Nm",
+    //   },
+    //   {
+    //     id:5,
+    //     name: "Hillux",
+    //     quantification: 1000,
+    //     size: "4.885 x 1.840 x 1.445",
+    //     price:"700",
+    //     seats:"5",
+    //     engine:"1.5 turbo",
+    //     xylanh:"1.969cc",
+    //     hp:"640Nm",
+    //   },
+    //   {
+    //     id:6,
+    //     name: "Fortuner",
+    //     quantification: 1000,
+    //     size: "4.885 x 1.840 x 1.445",
+    //     price:"700",
+    //     seats:"5",
+    //     engine:"1.5 turbo",
+    //     xylanh:"1.969cc",
+    //     hp:"640Nm",
+    //   },
+    //   {
+    //     id:7,
+    //     name: "Rav4",
+    //     quantification: 1000,
+    //     size: "4.885 x 1.840 x 1.445",
+    //     price:"700",
+    //     seats:"5",
+    //     engine:"1.5 turbo",
+    //     xylanh:"1.969cc",
+    //     hp:"640Nm",
+    //   },
+    //   {
+    //     id:8,
+    //     name: "Vios",
+    //     quantification: 1000,
+    //     size: "4.885 x 1.840 x 1.445",
+    //     prince:"700",
+    //     seats:"5",
+    //     engine:"1.5 turbo",
+    //     xylanh:"1.969cc",
+    //     hp:"640Nm",
+    //   },
+    //   {
+    //     id:9,
+    //     name: "Vios",
+    //     quantification: 1000,
+    //     size: "4.885 x 1.840 x 1.445",
+    //     price:"700",
+    //     seats:"5",
+    //     engine:"1.5 turbo",
+    //     xylanh:"1.969cc",
+    //     hp:"640Nm",
+    //   },
+    //   {
+    //     id:10,
+    //     name: "Vios",
+    //     quantification: 1000,
+    //     size: "4.885 x 1.840 x 1.445",
+    //     price:"700",
+    //     seats:"5",
+    //     engine:"1.5 turbo",
+    //     xylanh:"1.969cc",
+    //     hp:"640Nm",
+    //   },
+    //   {
+    //     id:11,
+    //     name: "Vios",
+    //     quantification: 1000,
+    //     size: "4.885 x 1.840 x 1.445",
+    //     price:"700",
+    //     seats:"5",
+    //     engine:"1.5 turbo",
+    //     xylanh:"1.969cc",
+    //     hp:"640Nm",
+    //   },
+    //   {
+    //     id:12,
+    //     name: "Vios",
+    //     quantification: 1000,
+    //     size: "4.885 x 1.840 x 1.445",
+    //     price:"700",
+    //     seats:"5",
+    //     engine:"1.5 turbo",
+    //     xylanh:"1.969cc",
+    //     hp:"640Nm",
+    //   },
+    // ]);
   
     const columns = [
       { title: "name", field: "name", width: 90, editable: false },

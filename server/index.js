@@ -13,6 +13,10 @@ const distributorRoute = require("./routes/distributor");
 const factoryRoute = require("./routes/factory");
 const serviceCenterRoute = require("./routes/serviceCenter");
 const productLineRoute = require("./routes/productLine");
+const toyProductLineRoute = require("./routes/toyProductLine");
+const toyProductRoute = require("./routes/toyProduct");
+
+
 
 // connect database
 mongoose.connect(
@@ -37,7 +41,11 @@ app.use("/api/auth", authroute);
 app.use("/api/distributor", distributorRoute);
 app.use("/api/factory", factoryRoute)
 app.use("/api/serviceCenter", serviceCenterRoute);
-app.use("/api/productLine",productLineRoute)
+app.use("/api/productLine",productLineRoute);
+app.use("/api/toyProductLine",toyProductLineRoute);
+app.use("/api/toyProduct",toyProductRoute)
+
+
 
 app.listen(8000, () => {
   console.log("Server is running...");
