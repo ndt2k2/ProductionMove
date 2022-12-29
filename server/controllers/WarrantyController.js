@@ -41,7 +41,7 @@ const WarrantyController = {
       const productUpdate = await Warranty.findByIdAndUpdate(ID, update, {
         new: true,
         upsert: true,
-        rawResult: true, // Return the raw result from the MongoDB driver
+        rawResult: true, 
       });
       res.json(productUpdate);
     } catch (error) {
