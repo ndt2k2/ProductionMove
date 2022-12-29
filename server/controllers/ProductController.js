@@ -76,9 +76,9 @@ const ProductsController = {
   // Update product
   updateProduct: async (req, res) => {
     try {
-      const ID = req.params.id;
+      const ID = req.body._id;
       const update = req.body;
-      const productUpdate = await Products.findOneAndUpdate(filter, update, {
+      const productUpdate = await Products.findByIdAndUpdate(ID, update, {
         new: true,
         upsert: true,
         rawResult: true, // Return the raw result from the MongoDB driver

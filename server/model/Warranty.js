@@ -1,7 +1,5 @@
 const mongoose = require('mongoose');
-const Distributor = require('./Distributor');
 const Product = require('./Product');
-const ServiceCenter = require('./ServiceCenter');
 
 const WarrantySchema = new mongoose.Schema({
     idProduct: {
