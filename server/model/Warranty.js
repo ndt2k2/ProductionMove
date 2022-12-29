@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Product = require('./Product');
+const Account = require("./Account");
 
 const WarrantySchema = new mongoose.Schema({
     idProduct: {
@@ -9,24 +10,16 @@ const WarrantySchema = new mongoose.Schema({
     },
     idDistributor: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: Distributor,
+        ref: Account,
         required: true,
     },
     idServiceCenter: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: ServiceCenter,
+        ref: Account,
         required: true,
     },
     error: {
         type: String,
-        required: true,
-    },
-    receivedDate: {
-        type: Date,
-        required: true,
-    },
-    completedDay: {
-        type: Date,
         required: true,
     },
     result: {
