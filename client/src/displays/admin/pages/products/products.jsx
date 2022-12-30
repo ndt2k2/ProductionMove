@@ -98,6 +98,13 @@ export default function Products() {
           rows[i].Factory = nameF
         }
         }
+        if(rows !== null){
+
+          for(var i = 0; i < rows.length; i++){
+            let nameL= rows[i].location.name
+            rows[i].Location = nameL
+          }
+          }
   const handleEditClick = (id) => () => {
     setRowModesModel({ ...rowModesModel, [id]: { mode: GridRowModes.Edit } });
   };
@@ -156,7 +163,7 @@ export default function Products() {
     {
       title: "Status",
       headerName: "Status",
-      field: "Status",
+      field: "status",
       width: 120,
       editable: true,
     },

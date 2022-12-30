@@ -10,8 +10,8 @@ const AccountController = {
       if (acc !== null) {
         res.json("Tài khoản đã tồn tại");
       } else {
-        const saveAccount = new Account(req.body);
-        saveAccount.save();
+        const account = new Account(req.body);
+        const saveAccount = await account.save();
         res.json(saveAccount);
       }
     } catch (error) {
@@ -53,6 +53,22 @@ const AccountController = {
     try {
       const allProduct = await Account.find({"typeAccount" : "Servicecenter"});
       res.status(200).json(allProduct);
+    } catch (error) {
+      res.status(500).json(error);
+    }
+  },
+
+  // Update account
+  updateAccount: async (req, res) => {
+    try {
+      const ID = req.body._id;
+      const update = req.body;
+      const productUpdate = await Account.findByIdAndUpdate(ID, update, {
+        new: true,
+        upsert: true,
+        rawResult: true, // Return the raw result from the MongoDB driver
+      });
+      res.json(productUpdate);
     } catch (error) {
       res.status(500).json(error);
     }

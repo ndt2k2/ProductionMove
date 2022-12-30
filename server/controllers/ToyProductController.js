@@ -1,6 +1,7 @@
-const Products = require("../model/Product");
+const Products = require("../model/ToyProduct");
+const ProductLineTo = require("../model/ToyProductLine");
 
-const ProductsController = {
+const ToyProductsController = {
   // ADD PRODUCT
   addProduct: async (req, res) => {
     try {
@@ -12,14 +13,26 @@ const ProductsController = {
     }
   },
 
+  deleteProduct: async (req, res) => {
+    try {
+      const find = ToyProducts.find({owner: req.body.owner})
+      for (i=0; i<find.length; i++){
+        await ToyProducts.findOneAndDelete({_id : find[i]._id})
+      } 
+      res.status(200).json("xoa thanh cong");
+    } catch (error) {
+      res.status(500).json(error);
+    }
+  },
+
   // find all product
   getAllProduct: async (req, res) => {
     try {
       const allProduct = await Products.find()
+        .populate("idProductLine", "name")
         .populate("idFactory", "name")
         .populate("idDistributor", "name")
-        .populate("idProductLine", "name")
-        .populate("location", "name")
+        .populate("located", "name")
         .populate("owner", "name");
       res.status(200).json(allProduct);
     } catch (error) {
@@ -61,10 +74,37 @@ const ProductsController = {
   },
 
   // find all product in distributor
-  getAllProductInDistributor: async (req, res) => {
+  getAllProductInLocation: async (req, res) => {
     try {
-      const allProduct = await Products.find({ status: "distributor" });
+      const allProduct = await Products.find(
+        { status: "New",
+          located: req.body._id}
+        );
       res.status(200).json(allProduct);
+    } catch (error) {
+      res.status(500).json(error);
+    }
+  },
+  countQuantification: async (req, res) => {
+    try {
+      const getAllProductLineTo = await ProductLineTo.find({});
+      var count = Array(getAllProductLineTo.length).fill(0);
+      const allProduct = await Products.find(
+        { status: "New",
+          located: req.body._id}
+        )
+        .populate("idFactory", "name")
+        .populate("located", "name")
+        .populate("owner", "name");
+
+      for(let i = 0;i< getAllProductLineTo.length;i++){
+        for(let j = 0;j< allProduct.length;j++){
+          if(JSON.stringify(getAllProductLineTo[i]._id) === JSON.stringify(allProduct[j].idProductLine)){
+            count[i] = count[i]+1;   
+          }
+        }
+      }
+      res.status(200).json(count);
     } catch (error) {
       res.status(500).json(error);
     }
@@ -76,9 +116,9 @@ const ProductsController = {
   // Update product
   updateProduct: async (req, res) => {
     try {
-      const ID = req.body._id;
+      const ID = req.params.id;
       const update = req.body;
-      const productUpdate = await Products.findByIdAndUpdate(ID, update, {
+      const productUpdate = await Products.findOneAndUpdate(filter, update, {
         new: true,
         upsert: true,
         rawResult: true, // Return the raw result from the MongoDB driver
@@ -102,4 +142,4 @@ const ProductsController = {
   },
 };
 
-module.exports = ProductsController;
+module.exports = ToyProductsController;

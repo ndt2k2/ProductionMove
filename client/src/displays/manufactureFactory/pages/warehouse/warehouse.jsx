@@ -1,4 +1,4 @@
-import "./products.css";
+import "./warehouse.css";
 import Sidebar from "../sidebar/sidebar";
 import Navbar from "../../../../components/navbar/navbar";
 import Table from "../../../../components/table/table";
@@ -13,7 +13,7 @@ import axios from "axios";
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-export default function Products() {
+export default function Warehouse() {
     const height = 631;
     const [rowModesModel, setRowModesModel] = React.useState({});
     const [rows, setRows] = useState([]);
@@ -21,9 +21,7 @@ export default function Products() {
     useEffect(() => {
       const getAllProduct = async () => {
         try {
-          const res = await axios.get("http://localhost:8000/api/toyProductLine/getAll");
-          const res2 = await axios.post("http://localhost:8000/api/toyProduct/countQuantification",JSON.parse(localStorage.user));
-          setCount(res2.data);
+          const res = await axios.get("http://localhost:8000/api/toyProductgetAll/");
           setRows(res.data);
         } catch (error) {
           console.log(error);

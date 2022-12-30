@@ -1,17 +1,15 @@
 const mongoose = require("mongoose");
 const Account = require("./Account");
 const Customer = require("./Customer");
-const ProductLine = require("./ProductLine");
+const ProductLine = require("./ToyProductLine");
 
 const ProductSchema = new mongoose.Schema(
   {
-    name: {
-      type: String,
-      required: true,
-    },
-    color: {
-      type: String,
-      required: true,
+
+    idProductLine: {
+        type: mongoose.Schema.Types.ObjectId,
+        required: false,
+        ref: ProductLine,
     },
     idFactory: {
       type: mongoose.Schema.Types.ObjectId,
@@ -23,16 +21,11 @@ const ProductSchema = new mongoose.Schema(
       required: false,
       ref: Account,
     },
-    idProductLine: {
-      type: mongoose.Schema.Types.ObjectId,
-      required: false,
-      ref: ProductLine,
-    },
     status: {
       type: String,
       required: true,
     },
-    location: {
+    located: {
       type: mongoose.Schema.Types.ObjectId,
       required: false,
       ref: Account,
@@ -45,4 +38,4 @@ const ProductSchema = new mongoose.Schema(
   },
   { timestamps: true }
 );
-module.exports = mongoose.model("Product", ProductSchema);
+module.exports = mongoose.model("ToyProduct", ProductSchema);

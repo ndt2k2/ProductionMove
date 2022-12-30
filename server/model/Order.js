@@ -1,24 +1,28 @@
 const mongoose = require('mongoose');
-const Customer = require('./Customer');
-const Product = require('./Product');
+const Account = require('./Account');
+const ProductLine = require('./ProductLine');
 
-const ReceiptSchema = new mongoose.Schema({
-    idCustomer: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: Customer,
-        required: true,
-    },
+const OrderSchema = new mongoose.Schema({
     idDistributor: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: Distributor,
+        ref: Account,
         required: true,
     },
-    idProduct: {
+    idFactory: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: Product,
+        ref: Account,
+        required: true,
+    },
+    idProductLine: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: ProductLine,
         required: true,
     },
     price: {
+        type: String,
+        required: true,
+    },
+    quantity: {
         type: String,
         required: true,
     },
@@ -26,13 +30,9 @@ const ReceiptSchema = new mongoose.Schema({
         type: Date,
         required: true,
     },
-    completionDate: {
-        type: Date,
-        required: false,
-    },
     status: {
         type: String,
         required: true,
     },
 }, { timestamps: true });
-module.exports = mongoose.model("Receipt", ReceiptSchema);
+module.exports = mongoose.model("Order", OrderSchema);
